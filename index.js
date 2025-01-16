@@ -1,6 +1,65 @@
 require('dotenv').config();
+const { Pool } = require('pg');
+const fs = require('fs');
 
-async function fetchBookmarks() {
+// Initialize PostgreSQL connection pool
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+
+
+async function saveTweetsToDatabase(tweets) {
+  const insertQuery = `
+    INSERT INTO bookmarked_tweets (
+      tweet_id, url, full_text, timestamp, media_type, media_source,
+      author_name, author_screen_name, author_profile_image_url
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    ON CONFLICT (tweet_id) DO NOTHING;
+  `;
+
+  try {
+    for (const tweet of tweets) {
+      // Check if tweet already exists
+      const checkQuery = 'SELECT tweet_id FROM bookmarked_tweets WHERE tweet_id = $1';
+      const existingTweet = await pool.query(checkQuery, [tweet.id]);
+      
+      if (existingTweet.rows.length === 0) {
+        await pool.query(insertQuery, [
+          tweet.id,
+          tweet.url,
+          tweet.full_text,
+          new Date(tweet.timestamp),
+          tweet.media?.type || null,
+          tweet.media?.source || null,
+          tweet.author.name,
+          tweet.author.screen_name,
+          tweet.author.profile_image_url
+        ]);
+        console.log(`Saved tweet ${tweet.id}`);
+      } else {
+        console.log(`Skipping existing tweet ${tweet.id}`);
+      }
+    }
+    console.log(`Processing complete for ${tweets.length} tweets`);
+  } catch (error) {
+    console.error('Error saving tweets to database:', error);
+    throw error;
+  }
+}
+
+async function fetchBookmarks(cursor = null) {
+
+  if (!cursor) {
+    // Try to read last cursor from temporary storage
+    try {
+      const lastCursor = fs.readFileSync('.bookmark_cursor', 'utf8');
+      cursor = lastCursor;
+      console.log('Resuming from cursor:', cursor);
+    } catch (err) {
+      console.log('No saved cursor found, starting from beginning');
+    }
+  }
+
   const headers = new Headers();
   headers.append("Cookie", process.env.COOKIE);
   headers.append("X-Csrf-token", process.env.CSRF_TOKEN);
@@ -40,9 +99,12 @@ async function fetchBookmarks() {
 }
 
   const variables = {
-    count: 2,
+    count: 100,
+    cursor: cursor,
     includePromotedContent: false,
   };
+
+
 
   const API_URL = `https://x.com/i/api/graphql/${
     process.env.BOOKMARKS_API_ID
@@ -74,6 +136,17 @@ async function fetchBookmarks() {
     const parsedTweets = tweetEntries.map(parseTweet);
 
     console.log("Received data:", parsedTweets);
+    await saveTweetsToDatabase(parsedTweets);
+
+    const nextCursor = getNextCursor(entries);
+
+    if (nextCursor) {
+      fs.writeFileSync('.bookmark_cursor', nextCursor);
+      return await fetchBookmarks(nextCursor);
+    }else{
+      console.log("No more bookmarks to fetch");
+    }
+
     return data;
   } catch (error) {
     console.error("Error fetching bookmarks:", error);
@@ -120,11 +193,16 @@ const parseTweet = (entry) => {
   const tweetId = tweet?.legacy?.id_str || entry.entryId.split('-')[1];
   const url = `https://twitter.com/${author.screen_name}/status/${tweetId}`;
 
+  // Ensure we have a valid timestamp or use null
+  const timestamp = tweet?.legacy?.created_at ? 
+    new Date(tweet.legacy.created_at).toISOString() : 
+    null;
+
   return {
     id: entry.entryId,
     url: url,
     full_text: tweet?.legacy?.full_text,
-    timestamp: tweet?.legacy?.created_at,
+    timestamp: timestamp,
     media: getMediaInfo(media),
     author: {
       name: author.name,
@@ -133,5 +211,12 @@ const parseTweet = (entry) => {
     }
   }; 
 };
+
+const getNextCursor = (entries) => {
+  const cursorEntry = entries.find(entry => entry.entryId.startsWith("cursor-bottom-"));
+  return cursorEntry ? cursorEntry.content.value : null;
+};
+
+
 
 fetchBookmarks();
