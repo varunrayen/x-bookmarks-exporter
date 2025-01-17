@@ -35,21 +35,23 @@ export default function ResultCard({ result }) {
             </div>
 
             {/* Tweet Text */}
-            <p className="text-sm text-gray-900 mt-0.5 break-words">{result.text}</p>
+            <div className="flex gap-4 items-start">
+              <p className="text-sm text-gray-900 mt-0.5 break-words flex-1">{result.text}</p>
 
-            {/* Media Preview */}
-            {result.media_source && result.media_type === 'photo' && (
-              <div 
-                className="mt-2 inline-block rounded-md overflow-hidden border border-gray-100 cursor-pointer hover:opacity-90 transition-opacity"
-                onClick={handleImageClick}
-              >
-                <img
-                  src={result.media_source}
-                  alt="Tweet media"
-                  className="w-48 h-48 object-cover"
-                />
-              </div>
-            )}
+              {/* Media Preview */}
+              {result.media_source && result.media_type === 'photo' && (
+                <div 
+                  className="mt-2 flex-shrink-0 rounded-md overflow-hidden border border-gray-100 cursor-pointer hover:opacity-90 hover:scale-105 transition-all duration-200 ease-in-out transform"
+                  onClick={handleImageClick}
+                >
+                  <img
+                    src={result.media_source}
+                    alt="Tweet media"
+                    className="w-32 h-32 object-cover"
+                  />
+                </div>
+              )}
+            </div>
 
             {/* Footer */}
             <div className="mt-2 flex items-center gap-3 text-xs">
