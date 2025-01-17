@@ -116,5 +116,64 @@ def search():
     except Exception as e:
         return {'error': str(e)}
 
+@app.route('/bookmarks', methods=['GET'])
+def get_bookmarks():
+    try:
+        page = int(request.args.get('page', 1))
+        per_page = int(request.args.get('per_page', 10))
+        
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        # Get total count
+        cursor.execute("SELECT COUNT(*) FROM bookmarked_tweets")
+        total_results = cursor.fetchone()[0]
+        
+        # Get paginated results ordered by timestamp
+        cursor.execute(
+            """
+            SELECT tweet_id, url, full_text, timestamp, media_type, 
+                   media_source, author_name, author_screen_name, 
+                   author_profile_image_url, created_at, embeddings
+            FROM bookmarked_tweets
+            ORDER BY timestamp DESC NULLS LAST
+            LIMIT %s OFFSET %s;
+            """,
+            (per_page, (page - 1) * per_page)
+        )
+
+        results = cursor.fetchall()
+        cursor.close()
+        conn.close()
+
+        results_list = []
+        for (tweet_id, url, full_text, timestamp, media_type, media_source, 
+             author_name, author_screen_name, author_profile_image_url, 
+             created_at, embeddings) in results:
+            results_list.append({
+                'tweet_id': tweet_id,
+                'url': url,
+                'text': full_text,
+                'timestamp': timestamp.isoformat() if timestamp else None,
+                'media_type': media_type,
+                'media_source': media_source,
+                'author_name': author_name,
+                'author_screen_name': author_screen_name,
+                'author_profile_image_url': author_profile_image_url,
+                'created_at': created_at.isoformat() if created_at else None,
+                'embeddings': embeddings
+            })
+
+        return {
+            'results': results_list,
+            'total': total_results,
+            'page': page,
+            'per_page': per_page,
+            'total_pages': (total_results + per_page - 1) // per_page
+        }
+
+    except Exception as e:
+        return {'error': str(e)}
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)
