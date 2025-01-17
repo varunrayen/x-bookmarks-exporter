@@ -3,8 +3,10 @@ from hello import get_embeddings
 import psycopg2
 from dotenv import load_dotenv
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 load_dotenv()
 
 def get_db_connection():
@@ -36,7 +38,10 @@ def search():
         cursor = conn.cursor()
         cursor.execute(
             """
-            SELECT bt.tweet_id, bt.full_text, bt.url, te.embedding <-> %s::vector AS distance
+            SELECT bt.tweet_id, bt.url, bt.full_text, bt.timestamp, bt.media_type, 
+                   bt.media_source, bt.author_name, bt.author_screen_name, 
+                   bt.author_profile_image_url, bt.created_at, bt.embeddings,
+                   te.embedding <-> %s::vector AS distance
             FROM bookmarked_tweets bt
             JOIN tweet_embeddings te ON bt.tweet_id = te.tweet_id
             ORDER BY distance ASC
@@ -54,10 +59,25 @@ def search():
 
         # Prepare results
         results_list = []
-        for tweet_id, text, url, distance in results:
+        for (tweet_id, url, full_text, timestamp, media_type, media_source, 
+             author_name, author_screen_name, author_profile_image_url, 
+             created_at, embeddings, distance) in results:
             similarity = (1 - float(distance)) * 100
             
-            results_list.append({'text': text, 'similarity': similarity, 'url': url})
+            results_list.append({
+                'tweet_id': tweet_id,
+                'url': url,
+                'text': full_text,
+                'timestamp': timestamp.isoformat() if timestamp else None,
+                'media_type': media_type,
+                'media_source': media_source,
+                'author_name': author_name,
+                'author_screen_name': author_screen_name,
+                'author_profile_image_url': author_profile_image_url,
+                'created_at': created_at.isoformat() if created_at else None,
+                'embeddings': embeddings,
+                'similarity': similarity
+            })
 
         return {'results': results_list}
 
@@ -65,4 +85,4 @@ def search():
         return {'error': str(e)}
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)

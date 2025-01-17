@@ -1,0 +1,15 @@
+
+
+### bookmarked_tweets table structure
+
+1	tweet_id	varchar	NO	NULL	NULL		NULL
+2	url	text	NO	NULL	NULL		NULL
+3	full_text	text	YES	NULL	NULL		NULL
+4	timestamp	timestamp	YES	NULL	NULL		NULL
+5	media_type	varchar	YES	NULL	NULL		NULL
+6	media_source	text	YES	NULL	NULL		NULL
+7	author_name	varchar	YES	NULL	NULL		NULL
+8	author_screen_name	varchar	YES	NULL	NULL		NULL
+9	author_profile_image_url	text	YES	NULL	NULL		NULL
+10	created_at	timestamp	NO	NULL	CURRENT_TIMESTAMP		NULL
+11	embeddings	bool	YES	NULL	false		NULL
