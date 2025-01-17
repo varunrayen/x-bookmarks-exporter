@@ -1,8 +1,8 @@
-/* eslint-disable camelcase */
+/* eslint-disable */
 
 exports.shorthands = undefined;
 
-exports.up = pgm => {
+exports.up = (pgm) => {
   pgm.createTable('bookmarked_tweets', {
     tweet_id: { type: 'VARCHAR', primaryKey: true },
     url: { type: 'TEXT', notNull: true },
@@ -25,8 +25,8 @@ exports.up = pgm => {
   pgm.createIndex('bookmarked_tweets', 'timestamp');
 };
 
-exports.down = pgm => {
+exports.down = (pgm) => {
   pgm.dropIndex('bookmarked_tweets', 'author_screen_name');
   pgm.dropIndex('bookmarked_tweets', 'timestamp');
   pgm.dropTable('bookmarked_tweets');
-}; 
+};

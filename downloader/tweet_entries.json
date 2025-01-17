@@ -1,0 +1,3992 @@
+[
+  {
+    "entryId": "tweet-1879951546437496914",
+    "sortIndex": "1821434406275470548",
+    "content": {
+      "entryType": "TimelineTimelineItem",
+      "__typename": "TimelineTimelineItem",
+      "itemContent": {
+        "itemType": "TimelineTweet",
+        "__typename": "TimelineTweet",
+        "tweet_results": {
+          "result": {
+            "__typename": "Tweet",
+            "rest_id": "1879951546437496914",
+            "core": {
+              "user_results": {
+                "result": {
+                  "__typename": "User",
+                  "id": "VXNlcjoyMTUyMTMyMzgx",
+                  "rest_id": "2152132381",
+                  "affiliates_highlighted_label": {},
+                  "has_graduated_access": true,
+                  "is_blue_verified": true,
+                  "profile_image_shape": "Circle",
+                  "legacy": {
+                    "following": false,
+                    "can_dm": true,
+                    "can_media_tag": true,
+                    "created_at": "Thu Oct 24 03:18:01 +0000 2013",
+                    "default_profile": false,
+                    "default_profile_image": false,
+                    "description": "Teaching & building AI apps\n\n- Newsletter: https://t.co/mNGGqvnJMN\n- AI Course: https://t.co/3P5ROk6Eyp\n- Raised 20k for UA\n- Ambassad @storyblok",
+                    "entities": {
+                      "description": {
+                        "urls": [
+                          {
+                            "display_url": "instructa.ai",
+                            "expanded_url": "https://instructa.ai",
+                            "url": "https://t.co/mNGGqvnJMN",
+                            "indices": [
+                              43,
+                              66
+                            ]
+                          },
+                          {
+                            "display_url": "instructa.ai/cursor-ai",
+                            "expanded_url": "https://www.instructa.ai/cursor-ai",
+                            "url": "https://t.co/3P5ROk6Eyp",
+                            "indices": [
+                              80,
+                              103
+                            ]
+                          }
+                        ]
+                      },
+                      "url": {
+                        "urls": [
+                          {
+                            "display_url": "kevinkern.dev",
+                            "expanded_url": "https://kevinkern.dev",
+                            "url": "https://t.co/TvFKJWggI3",
+                            "indices": [
+                              0,
+                              23
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "fast_followers_count": 0,
+                    "favourites_count": 1780,
+                    "followers_count": 7223,
+                    "friends_count": 253,
+                    "has_custom_timelines": true,
+                    "is_translator": false,
+                    "listed_count": 118,
+                    "location": "Wien, Österreich 🇦🇹",
+                    "media_count": 583,
+                    "name": "Kevin Kern",
+                    "normal_followers_count": 7223,
+                    "pinned_tweet_ids_str": [
+                      "1865448335085011422"
+                    ],
+                    "possibly_sensitive": false,
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/2152132381/1593722251",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1849574174785732608/ltlLcyaT_normal.jpg",
+                    "profile_interstitial_type": "",
+                    "screen_name": "kregenrek",
+                    "statuses_count": 1935,
+                    "translator_type": "none",
+                    "url": "https://t.co/TvFKJWggI3",
+                    "verified": false,
+                    "want_retweets": false,
+                    "withheld_in_countries": []
+                  },
+                  "tipjar_settings": {},
+                  "verified_phone_status": false
+                }
+              }
+            },
+            "unmention_data": {},
+            "edit_control": {
+              "edit_tweet_ids": [
+                "1879951546437496914"
+              ],
+              "editable_until_msecs": "1737053951000",
+              "is_edit_eligible": true,
+              "edits_remaining": "5"
+            },
+            "is_translatable": false,
+            "views": {
+              "count": "71979",
+              "state": "EnabledWithCount"
+            },
+            "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+            "legacy": {
+              "bookmark_count": 730,
+              "bookmarked": true,
+              "created_at": "Thu Jan 16 17:59:11 +0000 2025",
+              "conversation_id_str": "1879951546437496914",
+              "display_text_range": [
+                0,
+                34
+              ],
+              "entities": {
+                "hashtags": [],
+                "media": [
+                  {
+                    "display_url": "pic.x.com/q392suj37T",
+                    "expanded_url": "https://x.com/kregenrek/status/1879951546437496914/photo/1",
+                    "id_str": "1879951428342419456",
+                    "indices": [
+                      35,
+                      58
+                    ],
+                    "media_key": "3_1879951428342419456",
+                    "media_url_https": "https://pbs.twimg.com/media/Ghbt3RlWkAAlus1.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/q392suj37T",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": []
+                      },
+                      "medium": {
+                        "faces": []
+                      },
+                      "small": {
+                        "faces": []
+                      },
+                      "orig": {
+                        "faces": []
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 688,
+                        "w": 1307,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 632,
+                        "w": 1200,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 358,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 688,
+                      "width": 1307,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1229,
+                          "h": 688
+                        },
+                        {
+                          "x": 146,
+                          "y": 0,
+                          "w": 688,
+                          "h": 688
+                        },
+                        {
+                          "x": 188,
+                          "y": 0,
+                          "w": 604,
+                          "h": 688
+                        },
+                        {
+                          "x": 318,
+                          "y": 0,
+                          "w": 344,
+                          "h": 688
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1307,
+                          "h": 688
+                        }
+                      ]
+                    },
+                    "allow_download_status": {
+                      "allow_download": true
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879951428342419456"
+                      }
+                    }
+                  }
+                ],
+                "symbols": [],
+                "timestamps": [],
+                "urls": [],
+                "user_mentions": []
+              },
+              "extended_entities": {
+                "media": [
+                  {
+                    "display_url": "pic.x.com/q392suj37T",
+                    "expanded_url": "https://x.com/kregenrek/status/1879951546437496914/photo/1",
+                    "id_str": "1879951428342419456",
+                    "indices": [
+                      35,
+                      58
+                    ],
+                    "media_key": "3_1879951428342419456",
+                    "media_url_https": "https://pbs.twimg.com/media/Ghbt3RlWkAAlus1.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/q392suj37T",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": []
+                      },
+                      "medium": {
+                        "faces": []
+                      },
+                      "small": {
+                        "faces": []
+                      },
+                      "orig": {
+                        "faces": []
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 688,
+                        "w": 1307,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 632,
+                        "w": 1200,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 358,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 688,
+                      "width": 1307,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1229,
+                          "h": 688
+                        },
+                        {
+                          "x": 146,
+                          "y": 0,
+                          "w": 688,
+                          "h": 688
+                        },
+                        {
+                          "x": 188,
+                          "y": 0,
+                          "w": 604,
+                          "h": 688
+                        },
+                        {
+                          "x": 318,
+                          "y": 0,
+                          "w": 344,
+                          "h": 688
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1307,
+                          "h": 688
+                        }
+                      ]
+                    },
+                    "allow_download_status": {
+                      "allow_download": true
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879951428342419456"
+                      }
+                    }
+                  }
+                ]
+              },
+              "favorite_count": 673,
+              "favorited": false,
+              "full_text": "Oh! 700 installs already thanks! 🙏 https://t.co/q392suj37T",
+              "is_quote_status": false,
+              "lang": "en",
+              "possibly_sensitive": false,
+              "possibly_sensitive_editable": true,
+              "quote_count": 3,
+              "reply_count": 8,
+              "retweet_count": 38,
+              "retweeted": false,
+              "user_id_str": "2152132381",
+              "id_str": "1879951546437496914"
+            }
+          }
+        },
+        "tweetDisplayType": "Tweet"
+      }
+    }
+  },
+  {
+    "entryId": "tweet-1879915920967057584",
+    "sortIndex": "1821432976507032915",
+    "content": {
+      "entryType": "TimelineTimelineItem",
+      "__typename": "TimelineTimelineItem",
+      "itemContent": {
+        "itemType": "TimelineTweet",
+        "__typename": "TimelineTweet",
+        "tweet_results": {
+          "result": {
+            "__typename": "Tweet",
+            "rest_id": "1879915920967057584",
+            "core": {
+              "user_results": {
+                "result": {
+                  "__typename": "User",
+                  "id": "VXNlcjoxMzI2MTgwNzU2MzEwMzMxMzk5",
+                  "rest_id": "1326180756310331399",
+                  "affiliates_highlighted_label": {
+                    "label": {
+                      "url": {
+                        "url": "https://twitter.com/SoverinAI",
+                        "urlType": "DeepLink"
+                      },
+                      "badge": {
+                        "url": "https://pbs.twimg.com/profile_images/1784330007424163841/8XwnNWxr_bigger.jpg"
+                      },
+                      "description": "Soverin",
+                      "userLabelType": "BusinessLabel",
+                      "userLabelDisplayType": "Badge"
+                    }
+                  },
+                  "has_graduated_access": true,
+                  "is_blue_verified": true,
+                  "profile_image_shape": "Circle",
+                  "legacy": {
+                    "following": true,
+                    "can_dm": true,
+                    "can_media_tag": true,
+                    "created_at": "Tue Nov 10 15:13:32 +0000 2020",
+                    "default_profile": true,
+                    "default_profile_image": false,
+                    "description": "Follow for posts about GitHub repos, DSPy, and agents\nDM if you want to share your AI project",
+                    "entities": {
+                      "description": {
+                        "urls": []
+                      },
+                      "url": {
+                        "urls": [
+                          {
+                            "display_url": "github.com/tom-doerr",
+                            "expanded_url": "https://github.com/tom-doerr",
+                            "url": "https://t.co/0Jasowj7QY",
+                            "indices": [
+                              0,
+                              23
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "fast_followers_count": 0,
+                    "favourites_count": 44489,
+                    "followers_count": 48718,
+                    "friends_count": 1726,
+                    "has_custom_timelines": true,
+                    "is_translator": false,
+                    "listed_count": 484,
+                    "location": "",
+                    "media_count": 4028,
+                    "name": "Tom Dörr",
+                    "normal_followers_count": 48718,
+                    "pinned_tweet_ids_str": [
+                      "1865522967041433959"
+                    ],
+                    "possibly_sensitive": false,
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/1326180756310331399/1721336045",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1492620842542510080/BjWHr7Et_normal.jpg",
+                    "profile_interstitial_type": "",
+                    "screen_name": "tom_doerr",
+                    "statuses_count": 13761,
+                    "translator_type": "none",
+                    "url": "https://t.co/0Jasowj7QY",
+                    "verified": false,
+                    "want_retweets": true,
+                    "withheld_in_countries": []
+                  },
+                  "tipjar_settings": {
+                    "is_enabled": true,
+                    "ethereum_handle": "0xaA3E2211dd1c7e6A55D46E5Af8a873e9967D1926"
+                  },
+                  "super_follow_eligible": true,
+                  "verified_phone_status": false
+                }
+              }
+            },
+            "unmention_data": {},
+            "edit_control": {
+              "edit_tweet_ids": [
+                "1879915920967057584"
+              ],
+              "editable_until_msecs": "1737045457000",
+              "is_edit_eligible": false,
+              "edits_remaining": "5"
+            },
+            "is_translatable": false,
+            "views": {
+              "count": "42739",
+              "state": "EnabledWithCount"
+            },
+            "source": "<a href=\"https://composio.dev/\" rel=\"nofollow\">Composio-APP</a>",
+            "legacy": {
+              "bookmark_count": 1118,
+              "bookmarked": true,
+              "created_at": "Thu Jan 16 15:37:37 +0000 2025",
+              "conversation_id_str": "1879915920967057584",
+              "display_text_range": [
+                0,
+                26
+              ],
+              "entities": {
+                "hashtags": [],
+                "media": [
+                  {
+                    "display_url": "pic.x.com/ShNM4QDQbG",
+                    "expanded_url": "https://x.com/tom_doerr/status/1879915920967057584/photo/1",
+                    "id_str": "1879915890193387520",
+                    "indices": [
+                      27,
+                      50
+                    ],
+                    "media_key": "3_1879915890193387520",
+                    "media_url_https": "https://pbs.twimg.com/media/GhbNirqW0AAyfO4.png",
+                    "type": "photo",
+                    "url": "https://t.co/ShNM4QDQbG",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": []
+                      },
+                      "medium": {
+                        "faces": []
+                      },
+                      "small": {
+                        "faces": []
+                      },
+                      "orig": {
+                        "faces": []
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 846,
+                        "w": 724,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 846,
+                        "w": 724,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 680,
+                        "w": 582,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 846,
+                      "width": 724,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 724,
+                          "h": 405
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 724,
+                          "h": 724
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 724,
+                          "h": 825
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 423,
+                          "h": 846
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 724,
+                          "h": 846
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879915890193387520"
+                      }
+                    }
+                  }
+                ],
+                "symbols": [],
+                "timestamps": [],
+                "urls": [],
+                "user_mentions": []
+              },
+              "extended_entities": {
+                "media": [
+                  {
+                    "display_url": "pic.x.com/ShNM4QDQbG",
+                    "expanded_url": "https://x.com/tom_doerr/status/1879915920967057584/photo/1",
+                    "id_str": "1879915890193387520",
+                    "indices": [
+                      27,
+                      50
+                    ],
+                    "media_key": "3_1879915890193387520",
+                    "media_url_https": "https://pbs.twimg.com/media/GhbNirqW0AAyfO4.png",
+                    "type": "photo",
+                    "url": "https://t.co/ShNM4QDQbG",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": []
+                      },
+                      "medium": {
+                        "faces": []
+                      },
+                      "small": {
+                        "faces": []
+                      },
+                      "orig": {
+                        "faces": []
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 846,
+                        "w": 724,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 846,
+                        "w": 724,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 680,
+                        "w": 582,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 846,
+                      "width": 724,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 724,
+                          "h": 405
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 724,
+                          "h": 724
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 724,
+                          "h": 825
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 423,
+                          "h": 846
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 724,
+                          "h": 846
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879915890193387520"
+                      }
+                    }
+                  }
+                ]
+              },
+              "favorite_count": 760,
+              "favorited": false,
+              "full_text": "AI crash course repository https://t.co/ShNM4QDQbG",
+              "is_quote_status": false,
+              "lang": "en",
+              "possibly_sensitive": false,
+              "possibly_sensitive_editable": true,
+              "quote_count": 3,
+              "reply_count": 6,
+              "retweet_count": 96,
+              "retweeted": false,
+              "user_id_str": "1326180756310331399",
+              "id_str": "1879915920967057584"
+            }
+          }
+        },
+        "tweetDisplayType": "Tweet"
+      }
+    }
+  },
+  {
+    "entryId": "tweet-1879933612193439822",
+    "sortIndex": "1821425880352876993",
+    "content": {
+      "entryType": "TimelineTimelineItem",
+      "__typename": "TimelineTimelineItem",
+      "itemContent": {
+        "itemType": "TimelineTweet",
+        "__typename": "TimelineTweet",
+        "tweet_results": {
+          "result": {
+            "__typename": "Tweet",
+            "rest_id": "1879933612193439822",
+            "core": {
+              "user_results": {
+                "result": {
+                  "__typename": "User",
+                  "id": "VXNlcjozODY0Nzc5ODA=",
+                  "rest_id": "386477980",
+                  "affiliates_highlighted_label": {},
+                  "has_graduated_access": true,
+                  "is_blue_verified": false,
+                  "profile_image_shape": "Circle",
+                  "legacy": {
+                    "following": false,
+                    "can_dm": true,
+                    "can_media_tag": true,
+                    "created_at": "Fri Oct 07 10:54:25 +0000 2011",
+                    "default_profile": false,
+                    "default_profile_image": false,
+                    "description": "chasing currency arbitrage",
+                    "entities": {
+                      "description": {
+                        "urls": []
+                      },
+                      "url": {
+                        "urls": [
+                          {
+                            "display_url": "rupeetravel.com",
+                            "expanded_url": "http://rupeetravel.com",
+                            "url": "https://t.co/pwq7VHFR3u",
+                            "indices": [
+                              0,
+                              23
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "fast_followers_count": 0,
+                    "favourites_count": 5560,
+                    "followers_count": 8823,
+                    "friends_count": 618,
+                    "has_custom_timelines": true,
+                    "is_translator": false,
+                    "listed_count": 51,
+                    "location": "🇮🇳 India Inc.",
+                    "media_count": 940,
+                    "name": "Harsh Vardhan",
+                    "normal_followers_count": 8823,
+                    "pinned_tweet_ids_str": [],
+                    "possibly_sensitive": false,
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/386477980/1712583764",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1776281844860026880/MqI81m14_normal.jpg",
+                    "profile_interstitial_type": "",
+                    "screen_name": "harsh_vardhhan",
+                    "statuses_count": 5579,
+                    "translator_type": "none",
+                    "url": "https://t.co/pwq7VHFR3u",
+                    "verified": false,
+                    "want_retweets": false,
+                    "withheld_in_countries": []
+                  },
+                  "tipjar_settings": {},
+                  "verified_phone_status": false
+                }
+              }
+            },
+            "unmention_data": {},
+            "edit_control": {
+              "edit_tweet_ids": [
+                "1879933612193439822"
+              ],
+              "editable_until_msecs": "1737049675000",
+              "is_edit_eligible": true,
+              "edits_remaining": "5"
+            },
+            "is_translatable": false,
+            "views": {
+              "count": "881",
+              "state": "EnabledWithCount"
+            },
+            "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+            "legacy": {
+              "bookmark_count": 5,
+              "bookmarked": true,
+              "created_at": "Thu Jan 16 16:47:55 +0000 2025",
+              "conversation_id_str": "1879933612193439822",
+              "display_text_range": [
+                0,
+                96
+              ],
+              "entities": {
+                "hashtags": [],
+                "media": [
+                  {
+                    "display_url": "pic.x.com/lVBnwkHhct",
+                    "expanded_url": "https://x.com/harsh_vardhhan/status/1879933612193439822/photo/1",
+                    "id_str": "1879933467758338048",
+                    "indices": [
+                      97,
+                      120
+                    ],
+                    "media_key": "3_1879933467758338048",
+                    "media_url_https": "https://pbs.twimg.com/media/Ghbdh1MaoAAE5m2.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/lVBnwkHhct",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": []
+                      },
+                      "medium": {
+                        "faces": []
+                      },
+                      "small": {
+                        "faces": []
+                      },
+                      "orig": {
+                        "faces": []
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 1547,
+                        "w": 2048,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 907,
+                        "w": 1200,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 514,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 1724,
+                      "width": 2282,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 2282,
+                          "h": 1278
+                        },
+                        {
+                          "x": 558,
+                          "y": 0,
+                          "w": 1724,
+                          "h": 1724
+                        },
+                        {
+                          "x": 770,
+                          "y": 0,
+                          "w": 1512,
+                          "h": 1724
+                        },
+                        {
+                          "x": 1420,
+                          "y": 0,
+                          "w": 862,
+                          "h": 1724
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 2282,
+                          "h": 1724
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879933467758338048"
+                      }
+                    }
+                  }
+                ],
+                "symbols": [],
+                "timestamps": [],
+                "urls": [],
+                "user_mentions": []
+              },
+              "extended_entities": {
+                "media": [
+                  {
+                    "display_url": "pic.x.com/lVBnwkHhct",
+                    "expanded_url": "https://x.com/harsh_vardhhan/status/1879933612193439822/photo/1",
+                    "id_str": "1879933467758338048",
+                    "indices": [
+                      97,
+                      120
+                    ],
+                    "media_key": "3_1879933467758338048",
+                    "media_url_https": "https://pbs.twimg.com/media/Ghbdh1MaoAAE5m2.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/lVBnwkHhct",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": []
+                      },
+                      "medium": {
+                        "faces": []
+                      },
+                      "small": {
+                        "faces": []
+                      },
+                      "orig": {
+                        "faces": []
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 1547,
+                        "w": 2048,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 907,
+                        "w": 1200,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 514,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 1724,
+                      "width": 2282,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 2282,
+                          "h": 1278
+                        },
+                        {
+                          "x": 558,
+                          "y": 0,
+                          "w": 1724,
+                          "h": 1724
+                        },
+                        {
+                          "x": 770,
+                          "y": 0,
+                          "w": 1512,
+                          "h": 1724
+                        },
+                        {
+                          "x": 1420,
+                          "y": 0,
+                          "w": 862,
+                          "h": 1724
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 2282,
+                          "h": 1724
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879933467758338048"
+                      }
+                    }
+                  }
+                ]
+              },
+              "favorite_count": 14,
+              "favorited": false,
+              "full_text": "For tech bros:\n\nApplication architecture of AI agent\n\nwhich I am building on Google flights data https://t.co/lVBnwkHhct",
+              "is_quote_status": false,
+              "lang": "en",
+              "possibly_sensitive": false,
+              "possibly_sensitive_editable": true,
+              "quote_count": 0,
+              "reply_count": 3,
+              "retweet_count": 0,
+              "retweeted": false,
+              "user_id_str": "386477980",
+              "id_str": "1879933612193439822"
+            }
+          }
+        },
+        "tweetDisplayType": "Tweet"
+      }
+    }
+  },
+  {
+    "entryId": "tweet-1879900990314512605",
+    "sortIndex": "1821425875416212505",
+    "content": {
+      "entryType": "TimelineTimelineItem",
+      "__typename": "TimelineTimelineItem",
+      "itemContent": {
+        "itemType": "TimelineTweet",
+        "__typename": "TimelineTweet",
+        "tweet_results": {
+          "result": {
+            "__typename": "Tweet",
+            "rest_id": "1879900990314512605",
+            "core": {
+              "user_results": {
+                "result": {
+                  "__typename": "User",
+                  "id": "VXNlcjozNDQ4Mjg0MzEz",
+                  "rest_id": "3448284313",
+                  "affiliates_highlighted_label": {},
+                  "has_graduated_access": true,
+                  "is_blue_verified": true,
+                  "profile_image_shape": "Circle",
+                  "legacy": {
+                    "following": false,
+                    "can_dm": true,
+                    "can_media_tag": true,
+                    "created_at": "Fri Sep 04 12:59:26 +0000 2015",
+                    "default_profile": false,
+                    "default_profile_image": false,
+                    "description": "Building with AI Agents @dair_ai • Prev: Meta AI, Galactica LLM, Elastic, Papers with Code, PhD • I also teach how to build with LLMs, RAG & AI Agents ⬇️",
+                    "entities": {
+                      "description": {
+                        "urls": []
+                      },
+                      "url": {
+                        "urls": [
+                          {
+                            "display_url": "dair-ai.thinkific.com",
+                            "expanded_url": "https://dair-ai.thinkific.com/",
+                            "url": "https://t.co/JBU5beHQNs",
+                            "indices": [
+                              0,
+                              23
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "fast_followers_count": 0,
+                    "favourites_count": 28286,
+                    "followers_count": 222835,
+                    "friends_count": 545,
+                    "has_custom_timelines": true,
+                    "is_translator": false,
+                    "listed_count": 3767,
+                    "location": "",
+                    "media_count": 2769,
+                    "name": "elvis",
+                    "normal_followers_count": 222835,
+                    "pinned_tweet_ids_str": [
+                      "1858967102784250144"
+                    ],
+                    "possibly_sensitive": false,
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/3448284313/1565974901",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/939313677647282181/vZjFWtAn_normal.jpg",
+                    "profile_interstitial_type": "",
+                    "screen_name": "omarsar0",
+                    "statuses_count": 12767,
+                    "translator_type": "regular",
+                    "url": "https://t.co/JBU5beHQNs",
+                    "verified": false,
+                    "want_retweets": false,
+                    "withheld_in_countries": []
+                  },
+                  "professional": {
+                    "rest_id": "1460724937073770505",
+                    "professional_type": "Creator",
+                    "category": [
+                      {
+                        "id": 713,
+                        "name": "Science & Technology",
+                        "icon_name": "IconBriefcaseStroke"
+                      }
+                    ]
+                  },
+                  "tipjar_settings": {
+                    "is_enabled": false,
+                    "cash_app_handle": "£elvisomarsaravia"
+                  },
+                  "verified_phone_status": false
+                }
+              }
+            },
+            "unmention_data": {},
+            "edit_control": {
+              "edit_tweet_ids": [
+                "1879900990314512605"
+              ],
+              "editable_until_msecs": "1737041897000",
+              "is_edit_eligible": false,
+              "edits_remaining": "5"
+            },
+            "is_translatable": false,
+            "views": {
+              "count": "70815",
+              "state": "EnabledWithCount"
+            },
+            "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+            "legacy": {
+              "bookmark_count": 1410,
+              "bookmarked": true,
+              "created_at": "Thu Jan 16 14:38:17 +0000 2025",
+              "conversation_id_str": "1879900990314512605",
+              "display_text_range": [
+                0,
+                79
+              ],
+              "entities": {
+                "hashtags": [],
+                "media": [
+                  {
+                    "display_url": "pic.x.com/nnm6aub7Zu",
+                    "expanded_url": "https://x.com/omarsar0/status/1879900990314512605/photo/1",
+                    "id_str": "1879900624432529408",
+                    "indices": [
+                      80,
+                      103
+                    ],
+                    "media_key": "3_1879900624432529408",
+                    "media_url_https": "https://pbs.twimg.com/media/Gha_qGRWAAA4cmI.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/nnm6aub7Zu",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": []
+                      },
+                      "medium": {
+                        "faces": []
+                      },
+                      "small": {
+                        "faces": []
+                      },
+                      "orig": {
+                        "faces": []
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 845,
+                        "w": 1570,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 646,
+                        "w": 1200,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 366,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 845,
+                      "width": 1570,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1509,
+                          "h": 845
+                        },
+                        {
+                          "x": 9,
+                          "y": 0,
+                          "w": 845,
+                          "h": 845
+                        },
+                        {
+                          "x": 61,
+                          "y": 0,
+                          "w": 741,
+                          "h": 845
+                        },
+                        {
+                          "x": 220,
+                          "y": 0,
+                          "w": 423,
+                          "h": 845
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1570,
+                          "h": 845
+                        }
+                      ]
+                    },
+                    "allow_download_status": {
+                      "allow_download": true
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879900624432529408"
+                      }
+                    }
+                  }
+                ],
+                "symbols": [],
+                "timestamps": [],
+                "urls": [],
+                "user_mentions": []
+              },
+              "extended_entities": {
+                "media": [
+                  {
+                    "display_url": "pic.x.com/nnm6aub7Zu",
+                    "expanded_url": "https://x.com/omarsar0/status/1879900990314512605/photo/1",
+                    "id_str": "1879900624432529408",
+                    "indices": [
+                      80,
+                      103
+                    ],
+                    "media_key": "3_1879900624432529408",
+                    "media_url_https": "https://pbs.twimg.com/media/Gha_qGRWAAA4cmI.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/nnm6aub7Zu",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": []
+                      },
+                      "medium": {
+                        "faces": []
+                      },
+                      "small": {
+                        "faces": []
+                      },
+                      "orig": {
+                        "faces": []
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 845,
+                        "w": 1570,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 646,
+                        "w": 1200,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 366,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 845,
+                      "width": 1570,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1509,
+                          "h": 845
+                        },
+                        {
+                          "x": 9,
+                          "y": 0,
+                          "w": 845,
+                          "h": 845
+                        },
+                        {
+                          "x": 61,
+                          "y": 0,
+                          "w": 741,
+                          "h": 845
+                        },
+                        {
+                          "x": 220,
+                          "y": 0,
+                          "w": 423,
+                          "h": 845
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1570,
+                          "h": 845
+                        }
+                      ]
+                    },
+                    "allow_download_status": {
+                      "allow_download": true
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879900624432529408"
+                      }
+                    }
+                  }
+                ]
+              },
+              "favorite_count": 882,
+              "favorited": false,
+              "full_text": "What a great resource to learn how others are building with LLMs and AI agents. https://t.co/nnm6aub7Zu",
+              "is_quote_status": false,
+              "lang": "en",
+              "possibly_sensitive": false,
+              "possibly_sensitive_editable": true,
+              "quote_count": 4,
+              "reply_count": 13,
+              "retweet_count": 124,
+              "retweeted": false,
+              "user_id_str": "3448284313",
+              "id_str": "1879900990314512605"
+            }
+          }
+        },
+        "tweetDisplayType": "Tweet"
+      }
+    }
+  },
+  {
+    "entryId": "tweet-1879923556609339568",
+    "sortIndex": "1821425526119634814",
+    "content": {
+      "entryType": "TimelineTimelineItem",
+      "__typename": "TimelineTimelineItem",
+      "itemContent": {
+        "itemType": "TimelineTweet",
+        "__typename": "TimelineTweet",
+        "tweet_results": {
+          "result": {
+            "__typename": "Tweet",
+            "rest_id": "1879923556609339568",
+            "core": {
+              "user_results": {
+                "result": {
+                  "__typename": "User",
+                  "id": "VXNlcjoxMzI2MTgwNzU2MzEwMzMxMzk5",
+                  "rest_id": "1326180756310331399",
+                  "affiliates_highlighted_label": {
+                    "label": {
+                      "url": {
+                        "url": "https://twitter.com/SoverinAI",
+                        "urlType": "DeepLink"
+                      },
+                      "badge": {
+                        "url": "https://pbs.twimg.com/profile_images/1784330007424163841/8XwnNWxr_bigger.jpg"
+                      },
+                      "description": "Soverin",
+                      "userLabelType": "BusinessLabel",
+                      "userLabelDisplayType": "Badge"
+                    }
+                  },
+                  "has_graduated_access": true,
+                  "is_blue_verified": true,
+                  "profile_image_shape": "Circle",
+                  "legacy": {
+                    "following": true,
+                    "can_dm": true,
+                    "can_media_tag": true,
+                    "created_at": "Tue Nov 10 15:13:32 +0000 2020",
+                    "default_profile": true,
+                    "default_profile_image": false,
+                    "description": "Follow for posts about GitHub repos, DSPy, and agents\nDM if you want to share your AI project",
+                    "entities": {
+                      "description": {
+                        "urls": []
+                      },
+                      "url": {
+                        "urls": [
+                          {
+                            "display_url": "github.com/tom-doerr",
+                            "expanded_url": "https://github.com/tom-doerr",
+                            "url": "https://t.co/0Jasowj7QY",
+                            "indices": [
+                              0,
+                              23
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "fast_followers_count": 0,
+                    "favourites_count": 44489,
+                    "followers_count": 48718,
+                    "friends_count": 1726,
+                    "has_custom_timelines": true,
+                    "is_translator": false,
+                    "listed_count": 484,
+                    "location": "",
+                    "media_count": 4028,
+                    "name": "Tom Dörr",
+                    "normal_followers_count": 48718,
+                    "pinned_tweet_ids_str": [
+                      "1865522967041433959"
+                    ],
+                    "possibly_sensitive": false,
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/1326180756310331399/1721336045",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1492620842542510080/BjWHr7Et_normal.jpg",
+                    "profile_interstitial_type": "",
+                    "screen_name": "tom_doerr",
+                    "statuses_count": 13761,
+                    "translator_type": "none",
+                    "url": "https://t.co/0Jasowj7QY",
+                    "verified": false,
+                    "want_retweets": true,
+                    "withheld_in_countries": []
+                  },
+                  "tipjar_settings": {
+                    "is_enabled": true,
+                    "ethereum_handle": "0xaA3E2211dd1c7e6A55D46E5Af8a873e9967D1926"
+                  },
+                  "super_follow_eligible": true,
+                  "verified_phone_status": false
+                }
+              }
+            },
+            "unmention_data": {},
+            "edit_control": {
+              "edit_tweet_ids": [
+                "1879923556609339568"
+              ],
+              "editable_until_msecs": "1737047277000",
+              "is_edit_eligible": false,
+              "edits_remaining": "5"
+            },
+            "is_translatable": false,
+            "views": {
+              "count": "41566",
+              "state": "EnabledWithCount"
+            },
+            "source": "<a href=\"https://composio.dev/\" rel=\"nofollow\">Composio-APP</a>",
+            "legacy": {
+              "bookmark_count": 832,
+              "bookmarked": true,
+              "created_at": "Thu Jan 16 16:07:57 +0000 2025",
+              "conversation_id_str": "1879923556609339568",
+              "display_text_range": [
+                0,
+                49
+              ],
+              "entities": {
+                "hashtags": [],
+                "media": [
+                  {
+                    "display_url": "pic.x.com/rQuHK5Sdry",
+                    "expanded_url": "https://x.com/tom_doerr/status/1879923556609339568/photo/1",
+                    "id_str": "1879923526838198272",
+                    "indices": [
+                      50,
+                      73
+                    ],
+                    "media_key": "3_1879923526838198272",
+                    "media_url_https": "https://pbs.twimg.com/media/GhbUfMYXIAAF9As.png",
+                    "type": "photo",
+                    "url": "https://t.co/rQuHK5Sdry",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": [
+                          {
+                            "x": 126,
+                            "y": 336,
+                            "h": 146,
+                            "w": 146
+                          }
+                        ]
+                      },
+                      "medium": {
+                        "faces": [
+                          {
+                            "x": 126,
+                            "y": 336,
+                            "h": 146,
+                            "w": 146
+                          }
+                        ]
+                      },
+                      "small": {
+                        "faces": [
+                          {
+                            "x": 116,
+                            "y": 311,
+                            "h": 135,
+                            "w": 135
+                          }
+                        ]
+                      },
+                      "orig": {
+                        "faces": [
+                          {
+                            "x": 126,
+                            "y": 336,
+                            "h": 146,
+                            "w": 146
+                          }
+                        ]
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 708,
+                        "w": 734,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 708,
+                        "w": 734,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 656,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 708,
+                      "width": 734,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 734,
+                          "h": 411
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 708,
+                          "h": 708
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 621,
+                          "h": 708
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 354,
+                          "h": 708
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 734,
+                          "h": 708
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879923526838198272"
+                      }
+                    }
+                  }
+                ],
+                "symbols": [],
+                "timestamps": [],
+                "urls": [],
+                "user_mentions": []
+              },
+              "extended_entities": {
+                "media": [
+                  {
+                    "display_url": "pic.x.com/rQuHK5Sdry",
+                    "expanded_url": "https://x.com/tom_doerr/status/1879923556609339568/photo/1",
+                    "id_str": "1879923526838198272",
+                    "indices": [
+                      50,
+                      73
+                    ],
+                    "media_key": "3_1879923526838198272",
+                    "media_url_https": "https://pbs.twimg.com/media/GhbUfMYXIAAF9As.png",
+                    "type": "photo",
+                    "url": "https://t.co/rQuHK5Sdry",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": [
+                          {
+                            "x": 126,
+                            "y": 336,
+                            "h": 146,
+                            "w": 146
+                          }
+                        ]
+                      },
+                      "medium": {
+                        "faces": [
+                          {
+                            "x": 126,
+                            "y": 336,
+                            "h": 146,
+                            "w": 146
+                          }
+                        ]
+                      },
+                      "small": {
+                        "faces": [
+                          {
+                            "x": 116,
+                            "y": 311,
+                            "h": 135,
+                            "w": 135
+                          }
+                        ]
+                      },
+                      "orig": {
+                        "faces": [
+                          {
+                            "x": 126,
+                            "y": 336,
+                            "h": 146,
+                            "w": 146
+                          }
+                        ]
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 708,
+                        "w": 734,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 708,
+                        "w": 734,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 656,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 708,
+                      "width": 734,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 734,
+                          "h": 411
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 708,
+                          "h": 708
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 621,
+                          "h": 708
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 354,
+                          "h": 708
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 734,
+                          "h": 708
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879923526838198272"
+                      }
+                    }
+                  }
+                ]
+              },
+              "favorite_count": 868,
+              "favorited": false,
+              "full_text": "LLM pipeline monitoring and optimization platform https://t.co/rQuHK5Sdry",
+              "is_quote_status": false,
+              "lang": "en",
+              "possibly_sensitive": false,
+              "possibly_sensitive_editable": true,
+              "quote_count": 0,
+              "reply_count": 5,
+              "retweet_count": 108,
+              "retweeted": false,
+              "user_id_str": "1326180756310331399",
+              "id_str": "1879923556609339568"
+            }
+          }
+        },
+        "tweetDisplayType": "Tweet"
+      }
+    }
+  },
+  {
+    "entryId": "tweet-1879896794366443837",
+    "sortIndex": "1821420786853109329",
+    "content": {
+      "entryType": "TimelineTimelineItem",
+      "__typename": "TimelineTimelineItem",
+      "itemContent": {
+        "itemType": "TimelineTweet",
+        "__typename": "TimelineTweet",
+        "tweet_results": {
+          "result": {
+            "__typename": "Tweet",
+            "rest_id": "1879896794366443837",
+            "core": {
+              "user_results": {
+                "result": {
+                  "__typename": "User",
+                  "id": "VXNlcjozMTI3MjYzOTM4",
+                  "rest_id": "3127263938",
+                  "affiliates_highlighted_label": {},
+                  "has_graduated_access": true,
+                  "is_blue_verified": false,
+                  "profile_image_shape": "Circle",
+                  "legacy": {
+                    "following": true,
+                    "can_dm": true,
+                    "can_media_tag": false,
+                    "created_at": "Wed Apr 01 18:30:46 +0000 2015",
+                    "default_profile": true,
+                    "default_profile_image": false,
+                    "description": "Travel Planner/Advisor || Cheap Flights, Cashback, Deals, Hacks|| 30+ Countries and Counting|| Work Save Travel Repeat||Travel because Money returns Time Doesnt",
+                    "entities": {
+                      "description": {
+                        "urls": []
+                      }
+                    },
+                    "fast_followers_count": 0,
+                    "favourites_count": 692,
+                    "followers_count": 4597,
+                    "friends_count": 571,
+                    "has_custom_timelines": true,
+                    "is_translator": false,
+                    "listed_count": 51,
+                    "location": "Ahmedabad, India",
+                    "media_count": 1327,
+                    "name": "Cashback Traveler",
+                    "normal_followers_count": 4597,
+                    "pinned_tweet_ids_str": [
+                      "1703833808884388007"
+                    ],
+                    "possibly_sensitive": false,
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/3127263938/1695614400",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1691446023619768320/i6NgXCWi_normal.jpg",
+                    "profile_interstitial_type": "",
+                    "screen_name": "IManthanJoshi",
+                    "statuses_count": 3132,
+                    "translator_type": "none",
+                    "verified": false,
+                    "want_retweets": true,
+                    "withheld_in_countries": []
+                  },
+                  "professional": {
+                    "rest_id": "1691465568854139021",
+                    "professional_type": "Creator",
+                    "category": [
+                      {
+                        "id": 880,
+                        "name": "Travel & Transportation",
+                        "icon_name": "IconBriefcaseStroke"
+                      }
+                    ]
+                  },
+                  "tipjar_settings": {},
+                  "verified_phone_status": true
+                }
+              }
+            },
+            "unmention_data": {},
+            "edit_control": {
+              "edit_tweet_ids": [
+                "1879896794366443837"
+              ],
+              "editable_until_msecs": "1737040897000",
+              "is_edit_eligible": false,
+              "edits_remaining": "5"
+            },
+            "is_translatable": false,
+            "views": {
+              "count": "1913",
+              "state": "EnabledWithCount"
+            },
+            "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+            "legacy": {
+              "bookmark_count": 6,
+              "bookmarked": true,
+              "created_at": "Thu Jan 16 14:21:37 +0000 2025",
+              "conversation_id_str": "1879896794366443837",
+              "display_text_range": [
+                0,
+                258
+              ],
+              "entities": {
+                "hashtags": [
+                  {
+                    "indices": [
+                      229,
+                      235
+                    ],
+                    "text": "Italy"
+                  },
+                  {
+                    "indices": [
+                      236,
+                      243
+                    ],
+                    "text": "Mumbai"
+                  },
+                  {
+                    "indices": [
+                      244,
+                      251
+                    ],
+                    "text": "Europe"
+                  },
+                  {
+                    "indices": [
+                      252,
+                      258
+                    ],
+                    "text": "Milan"
+                  }
+                ],
+                "media": [
+                  {
+                    "display_url": "pic.x.com/cB7UVfBClt",
+                    "expanded_url": "https://x.com/IManthanJoshi/status/1879896794366443837/photo/1",
+                    "id_str": "1879896791560372224",
+                    "indices": [
+                      259,
+                      282
+                    ],
+                    "media_key": "3_1879896791560372224",
+                    "media_url_https": "https://pbs.twimg.com/media/Gha8K_taQAA8wHh.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/cB7UVfBClt",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": [
+                          {
+                            "x": 704,
+                            "y": 466,
+                            "h": 263,
+                            "w": 263
+                          }
+                        ]
+                      },
+                      "medium": {
+                        "faces": [
+                          {
+                            "x": 512,
+                            "y": 339,
+                            "h": 191,
+                            "w": 191
+                          }
+                        ]
+                      },
+                      "small": {
+                        "faces": [
+                          {
+                            "x": 290,
+                            "y": 192,
+                            "h": 108,
+                            "w": 108
+                          }
+                        ]
+                      },
+                      "orig": {
+                        "faces": [
+                          {
+                            "x": 704,
+                            "y": 466,
+                            "h": 263,
+                            "w": 263
+                          }
+                        ]
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 1647,
+                        "w": 1262,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 1200,
+                        "w": 919,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 680,
+                        "w": 521,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 1647,
+                      "width": 1262,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 264,
+                          "w": 1262,
+                          "h": 707
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1262,
+                          "h": 1262
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1262,
+                          "h": 1439
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 824,
+                          "h": 1647
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1262,
+                          "h": 1647
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879896791560372224"
+                      }
+                    }
+                  }
+                ],
+                "symbols": [],
+                "timestamps": [],
+                "urls": [],
+                "user_mentions": []
+              },
+              "extended_entities": {
+                "media": [
+                  {
+                    "display_url": "pic.x.com/cB7UVfBClt",
+                    "expanded_url": "https://x.com/IManthanJoshi/status/1879896794366443837/photo/1",
+                    "id_str": "1879896791560372224",
+                    "indices": [
+                      259,
+                      282
+                    ],
+                    "media_key": "3_1879896791560372224",
+                    "media_url_https": "https://pbs.twimg.com/media/Gha8K_taQAA8wHh.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/cB7UVfBClt",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": [
+                          {
+                            "x": 704,
+                            "y": 466,
+                            "h": 263,
+                            "w": 263
+                          }
+                        ]
+                      },
+                      "medium": {
+                        "faces": [
+                          {
+                            "x": 512,
+                            "y": 339,
+                            "h": 191,
+                            "w": 191
+                          }
+                        ]
+                      },
+                      "small": {
+                        "faces": [
+                          {
+                            "x": 290,
+                            "y": 192,
+                            "h": 108,
+                            "w": 108
+                          }
+                        ]
+                      },
+                      "orig": {
+                        "faces": [
+                          {
+                            "x": 704,
+                            "y": 466,
+                            "h": 263,
+                            "w": 263
+                          }
+                        ]
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 1647,
+                        "w": 1262,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 1200,
+                        "w": 919,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 680,
+                        "w": 521,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 1647,
+                      "width": 1262,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 264,
+                          "w": 1262,
+                          "h": 707
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1262,
+                          "h": 1262
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1262,
+                          "h": 1439
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 824,
+                          "h": 1647
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1262,
+                          "h": 1647
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879896791560372224"
+                      }
+                    }
+                  }
+                ]
+              },
+              "favorite_count": 7,
+              "favorited": false,
+              "full_text": "🇮🇹 Chalo Italy 🇮🇹\n\n🚨 Ultra Lowest Fare Alert 🚨\n\nMumbai ➡️ Milan\n✈️ Royal Jordanian\n📅 24/5\n💵 9.3K with any payment mode \n🎒23 Kgs\n💻 Cleartrip \n\nVisit:\n🏙️Milan\n🛶 Venice \n🏟️Rome\n⛪Vatican City\n🪻Florence\n🏞️Cinque Terre\n🏖️Amalfi Coast\n\n#Italy\n#Mumbai\n#Europe\n#Milan https://t.co/cB7UVfBClt",
+              "is_quote_status": false,
+              "lang": "en",
+              "possibly_sensitive": false,
+              "possibly_sensitive_editable": true,
+              "quote_count": 0,
+              "reply_count": 2,
+              "retweet_count": 0,
+              "retweeted": false,
+              "user_id_str": "3127263938",
+              "id_str": "1879896794366443837"
+            }
+          }
+        },
+        "tweetDisplayType": "Tweet"
+      }
+    }
+  },
+  {
+    "entryId": "tweet-1879438389109538837",
+    "sortIndex": "1821420726215123264",
+    "content": {
+      "entryType": "TimelineTimelineItem",
+      "__typename": "TimelineTimelineItem",
+      "itemContent": {
+        "itemType": "TimelineTweet",
+        "__typename": "TimelineTweet",
+        "tweet_results": {
+          "result": {
+            "__typename": "Tweet",
+            "rest_id": "1879438389109538837",
+            "core": {
+              "user_results": {
+                "result": {
+                  "__typename": "User",
+                  "id": "VXNlcjoxNDE0NTExNDQ=",
+                  "rest_id": "141451144",
+                  "affiliates_highlighted_label": {},
+                  "has_graduated_access": true,
+                  "is_blue_verified": true,
+                  "profile_image_shape": "Circle",
+                  "legacy": {
+                    "following": false,
+                    "can_dm": true,
+                    "can_media_tag": true,
+                    "created_at": "Sat May 08 03:56:45 +0000 2010",
+                    "default_profile": false,
+                    "default_profile_image": false,
+                    "description": "CEO @fikristudio - Product design agency specialized in SaaS",
+                    "entities": {
+                      "description": {
+                        "urls": []
+                      },
+                      "url": {
+                        "urls": [
+                          {
+                            "display_url": "fikristudio.com",
+                            "expanded_url": "http://fikristudio.com",
+                            "url": "https://t.co/J0ZamBjsRH",
+                            "indices": [
+                              0,
+                              23
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "fast_followers_count": 0,
+                    "favourites_count": 3960,
+                    "followers_count": 9261,
+                    "friends_count": 499,
+                    "has_custom_timelines": true,
+                    "is_translator": false,
+                    "listed_count": 113,
+                    "location": "",
+                    "media_count": 1034,
+                    "name": "Bagus Fikri - SaaS Designer",
+                    "normal_followers_count": 9261,
+                    "pinned_tweet_ids_str": [
+                      "1804847114679369811"
+                    ],
+                    "possibly_sensitive": false,
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/141451144/1692416669",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1795786440158351360/YBUBEMxz_normal.jpg",
+                    "profile_interstitial_type": "",
+                    "screen_name": "bagus_fikri",
+                    "statuses_count": 5619,
+                    "translator_type": "none",
+                    "url": "https://t.co/J0ZamBjsRH",
+                    "verified": false,
+                    "want_retweets": false,
+                    "withheld_in_countries": []
+                  },
+                  "professional": {
+                    "rest_id": "1545538424345870336",
+                    "professional_type": "Creator",
+                    "category": [
+                      {
+                        "id": 1018,
+                        "name": "UX Designer",
+                        "icon_name": "IconBriefcaseStroke"
+                      }
+                    ]
+                  },
+                  "tipjar_settings": {
+                    "is_enabled": true
+                  },
+                  "verified_phone_status": false
+                }
+              }
+            },
+            "unmention_data": {},
+            "edit_control": {
+              "edit_tweet_ids": [
+                "1879438389109538837"
+              ],
+              "editable_until_msecs": "1736931604000",
+              "is_edit_eligible": false,
+              "edits_remaining": "5"
+            },
+            "is_translatable": false,
+            "views": {
+              "count": "19932",
+              "state": "EnabledWithCount"
+            },
+            "source": "<a href=\"https://typefully.com/\" rel=\"nofollow\">Typefully</a>",
+            "legacy": {
+              "bookmark_count": 290,
+              "bookmarked": true,
+              "created_at": "Wed Jan 15 08:00:04 +0000 2025",
+              "conversation_id_str": "1879438389109538837",
+              "display_text_range": [
+                0,
+                28
+              ],
+              "entities": {
+                "hashtags": [],
+                "media": [
+                  {
+                    "display_url": "pic.x.com/Hj8GrGkvqF",
+                    "expanded_url": "https://x.com/bagus_fikri/status/1879438389109538837/photo/1",
+                    "id_str": "1879438383975710720",
+                    "indices": [
+                      29,
+                      52
+                    ],
+                    "media_key": "3_1879438383975710720",
+                    "media_url_https": "https://pbs.twimg.com/media/GhUbQKYbQAAzDqf.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/Hj8GrGkvqF",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "all": {
+                        "tags": [
+                          {
+                            "user_id": "1636498573",
+                            "name": "Fikri Studio",
+                            "screen_name": "FikriStudio",
+                            "type": "user"
+                          }
+                        ]
+                      },
+                      "large": {
+                        "faces": [
+                          {
+                            "x": 707,
+                            "y": 247,
+                            "h": 71,
+                            "w": 71
+                          },
+                          {
+                            "x": 561,
+                            "y": 839,
+                            "h": 91,
+                            "w": 91
+                          },
+                          {
+                            "x": 213,
+                            "y": 391,
+                            "h": 123,
+                            "w": 123
+                          },
+                          {
+                            "x": 640,
+                            "y": 917,
+                            "h": 253,
+                            "w": 253
+                          }
+                        ]
+                      },
+                      "medium": {
+                        "faces": [
+                          {
+                            "x": 414,
+                            "y": 145,
+                            "h": 42,
+                            "w": 42
+                          },
+                          {
+                            "x": 329,
+                            "y": 492,
+                            "h": 53,
+                            "w": 53
+                          },
+                          {
+                            "x": 125,
+                            "y": 229,
+                            "h": 72,
+                            "w": 72
+                          },
+                          {
+                            "x": 375,
+                            "y": 537,
+                            "h": 148,
+                            "w": 148
+                          }
+                        ]
+                      },
+                      "small": {
+                        "faces": [
+                          {
+                            "x": 235,
+                            "y": 82,
+                            "h": 23,
+                            "w": 23
+                          },
+                          {
+                            "x": 186,
+                            "y": 278,
+                            "h": 30,
+                            "w": 30
+                          },
+                          {
+                            "x": 70,
+                            "y": 130,
+                            "h": 41,
+                            "w": 41
+                          },
+                          {
+                            "x": 212,
+                            "y": 304,
+                            "h": 84,
+                            "w": 84
+                          }
+                        ]
+                      },
+                      "orig": {
+                        "faces": [
+                          {
+                            "x": 1106,
+                            "y": 387,
+                            "h": 112,
+                            "w": 112
+                          },
+                          {
+                            "x": 878,
+                            "y": 1312,
+                            "h": 143,
+                            "w": 143
+                          },
+                          {
+                            "x": 334,
+                            "y": 612,
+                            "h": 193,
+                            "w": 193
+                          },
+                          {
+                            "x": 1000,
+                            "y": 1434,
+                            "h": 396,
+                            "w": 396
+                          }
+                        ]
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 1536,
+                        "w": 2048,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 900,
+                        "w": 1200,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 510,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 2400,
+                      "width": 3200,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 3200,
+                          "h": 1792
+                        },
+                        {
+                          "x": 160,
+                          "y": 0,
+                          "w": 2400,
+                          "h": 2400
+                        },
+                        {
+                          "x": 308,
+                          "y": 0,
+                          "w": 2105,
+                          "h": 2400
+                        },
+                        {
+                          "x": 760,
+                          "y": 0,
+                          "w": 1200,
+                          "h": 2400
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 3200,
+                          "h": 2400
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879438383975710720"
+                      }
+                    }
+                  }
+                ],
+                "symbols": [],
+                "timestamps": [],
+                "urls": [],
+                "user_mentions": []
+              },
+              "extended_entities": {
+                "media": [
+                  {
+                    "display_url": "pic.x.com/Hj8GrGkvqF",
+                    "expanded_url": "https://x.com/bagus_fikri/status/1879438389109538837/photo/1",
+                    "id_str": "1879438383975710720",
+                    "indices": [
+                      29,
+                      52
+                    ],
+                    "media_key": "3_1879438383975710720",
+                    "media_url_https": "https://pbs.twimg.com/media/GhUbQKYbQAAzDqf.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/Hj8GrGkvqF",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "all": {
+                        "tags": [
+                          {
+                            "user_id": "1636498573",
+                            "name": "Fikri Studio",
+                            "screen_name": "FikriStudio",
+                            "type": "user"
+                          }
+                        ]
+                      },
+                      "large": {
+                        "faces": [
+                          {
+                            "x": 707,
+                            "y": 247,
+                            "h": 71,
+                            "w": 71
+                          },
+                          {
+                            "x": 561,
+                            "y": 839,
+                            "h": 91,
+                            "w": 91
+                          },
+                          {
+                            "x": 213,
+                            "y": 391,
+                            "h": 123,
+                            "w": 123
+                          },
+                          {
+                            "x": 640,
+                            "y": 917,
+                            "h": 253,
+                            "w": 253
+                          }
+                        ]
+                      },
+                      "medium": {
+                        "faces": [
+                          {
+                            "x": 414,
+                            "y": 145,
+                            "h": 42,
+                            "w": 42
+                          },
+                          {
+                            "x": 329,
+                            "y": 492,
+                            "h": 53,
+                            "w": 53
+                          },
+                          {
+                            "x": 125,
+                            "y": 229,
+                            "h": 72,
+                            "w": 72
+                          },
+                          {
+                            "x": 375,
+                            "y": 537,
+                            "h": 148,
+                            "w": 148
+                          }
+                        ]
+                      },
+                      "small": {
+                        "faces": [
+                          {
+                            "x": 235,
+                            "y": 82,
+                            "h": 23,
+                            "w": 23
+                          },
+                          {
+                            "x": 186,
+                            "y": 278,
+                            "h": 30,
+                            "w": 30
+                          },
+                          {
+                            "x": 70,
+                            "y": 130,
+                            "h": 41,
+                            "w": 41
+                          },
+                          {
+                            "x": 212,
+                            "y": 304,
+                            "h": 84,
+                            "w": 84
+                          }
+                        ]
+                      },
+                      "orig": {
+                        "faces": [
+                          {
+                            "x": 1106,
+                            "y": 387,
+                            "h": 112,
+                            "w": 112
+                          },
+                          {
+                            "x": 878,
+                            "y": 1312,
+                            "h": 143,
+                            "w": 143
+                          },
+                          {
+                            "x": 334,
+                            "y": 612,
+                            "h": 193,
+                            "w": 193
+                          },
+                          {
+                            "x": 1000,
+                            "y": 1434,
+                            "h": 396,
+                            "w": 396
+                          }
+                        ]
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 1536,
+                        "w": 2048,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 900,
+                        "w": 1200,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 510,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 2400,
+                      "width": 3200,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 3200,
+                          "h": 1792
+                        },
+                        {
+                          "x": 160,
+                          "y": 0,
+                          "w": 2400,
+                          "h": 2400
+                        },
+                        {
+                          "x": 308,
+                          "y": 0,
+                          "w": 2105,
+                          "h": 2400
+                        },
+                        {
+                          "x": 760,
+                          "y": 0,
+                          "w": 1200,
+                          "h": 2400
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 3200,
+                          "h": 2400
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879438383975710720"
+                      }
+                    }
+                  }
+                ]
+              },
+              "favorite_count": 316,
+              "favorited": false,
+              "full_text": "Detailed Employee Attendance https://t.co/Hj8GrGkvqF",
+              "is_quote_status": false,
+              "lang": "en",
+              "possibly_sensitive": false,
+              "possibly_sensitive_editable": true,
+              "quote_count": 1,
+              "reply_count": 3,
+              "retweet_count": 13,
+              "retweeted": false,
+              "user_id_str": "141451144",
+              "id_str": "1879438389109538837"
+            }
+          }
+        },
+        "tweetDisplayType": "Tweet"
+      }
+    }
+  },
+  {
+    "entryId": "tweet-1879893406601842929",
+    "sortIndex": "1821415220165853191",
+    "content": {
+      "entryType": "TimelineTimelineItem",
+      "__typename": "TimelineTimelineItem",
+      "itemContent": {
+        "itemType": "TimelineTweet",
+        "__typename": "TimelineTweet",
+        "tweet_results": {
+          "result": {
+            "__typename": "Tweet",
+            "rest_id": "1879893406601842929",
+            "core": {
+              "user_results": {
+                "result": {
+                  "__typename": "User",
+                  "id": "VXNlcjozMTI3MjYzOTM4",
+                  "rest_id": "3127263938",
+                  "affiliates_highlighted_label": {},
+                  "has_graduated_access": true,
+                  "is_blue_verified": false,
+                  "profile_image_shape": "Circle",
+                  "legacy": {
+                    "following": true,
+                    "can_dm": true,
+                    "can_media_tag": false,
+                    "created_at": "Wed Apr 01 18:30:46 +0000 2015",
+                    "default_profile": true,
+                    "default_profile_image": false,
+                    "description": "Travel Planner/Advisor || Cheap Flights, Cashback, Deals, Hacks|| 30+ Countries and Counting|| Work Save Travel Repeat||Travel because Money returns Time Doesnt",
+                    "entities": {
+                      "description": {
+                        "urls": []
+                      }
+                    },
+                    "fast_followers_count": 0,
+                    "favourites_count": 692,
+                    "followers_count": 4597,
+                    "friends_count": 571,
+                    "has_custom_timelines": true,
+                    "is_translator": false,
+                    "listed_count": 51,
+                    "location": "Ahmedabad, India",
+                    "media_count": 1327,
+                    "name": "Cashback Traveler",
+                    "normal_followers_count": 4597,
+                    "pinned_tweet_ids_str": [
+                      "1703833808884388007"
+                    ],
+                    "possibly_sensitive": false,
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/3127263938/1695614400",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1691446023619768320/i6NgXCWi_normal.jpg",
+                    "profile_interstitial_type": "",
+                    "screen_name": "IManthanJoshi",
+                    "statuses_count": 3132,
+                    "translator_type": "none",
+                    "verified": false,
+                    "want_retweets": true,
+                    "withheld_in_countries": []
+                  },
+                  "professional": {
+                    "rest_id": "1691465568854139021",
+                    "professional_type": "Creator",
+                    "category": [
+                      {
+                        "id": 880,
+                        "name": "Travel & Transportation",
+                        "icon_name": "IconBriefcaseStroke"
+                      }
+                    ]
+                  },
+                  "tipjar_settings": {},
+                  "verified_phone_status": true
+                }
+              }
+            },
+            "unmention_data": {},
+            "edit_control": {
+              "edit_tweet_ids": [
+                "1879893406601842929"
+              ],
+              "editable_until_msecs": "1737040089000",
+              "is_edit_eligible": false,
+              "edits_remaining": "5"
+            },
+            "is_translatable": false,
+            "views": {
+              "count": "17777",
+              "state": "EnabledWithCount"
+            },
+            "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+            "legacy": {
+              "bookmark_count": 54,
+              "bookmarked": true,
+              "created_at": "Thu Jan 16 14:08:09 +0000 2025",
+              "conversation_id_str": "1879893406601842929",
+              "display_text_range": [
+                0,
+                241
+              ],
+              "entities": {
+                "hashtags": [
+                  {
+                    "indices": [
+                      219,
+                      225
+                    ],
+                    "text": "Italy"
+                  },
+                  {
+                    "indices": [
+                      226,
+                      233
+                    ],
+                    "text": "Mumbai"
+                  },
+                  {
+                    "indices": [
+                      234,
+                      241
+                    ],
+                    "text": "Europe"
+                  }
+                ],
+                "media": [
+                  {
+                    "display_url": "pic.x.com/DWvZDNLGf0",
+                    "expanded_url": "https://x.com/IManthanJoshi/status/1879893406601842929/photo/1",
+                    "id_str": "1879893403628146688",
+                    "indices": [
+                      242,
+                      265
+                    ],
+                    "media_key": "3_1879893403628146688",
+                    "media_url_https": "https://pbs.twimg.com/media/Gha5FyrbEAAD_cG.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/DWvZDNLGf0",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": []
+                      },
+                      "medium": {
+                        "faces": []
+                      },
+                      "small": {
+                        "faces": []
+                      },
+                      "orig": {
+                        "faces": []
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 1750,
+                        "w": 1243,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 1200,
+                        "w": 852,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 680,
+                        "w": 483,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 1750,
+                      "width": 1243,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 220,
+                          "w": 1243,
+                          "h": 696
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1243,
+                          "h": 1243
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1243,
+                          "h": 1417
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 875,
+                          "h": 1750
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1243,
+                          "h": 1750
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879893403628146688"
+                      }
+                    }
+                  }
+                ],
+                "symbols": [],
+                "timestamps": [],
+                "urls": [],
+                "user_mentions": []
+              },
+              "extended_entities": {
+                "media": [
+                  {
+                    "display_url": "pic.x.com/DWvZDNLGf0",
+                    "expanded_url": "https://x.com/IManthanJoshi/status/1879893406601842929/photo/1",
+                    "id_str": "1879893403628146688",
+                    "indices": [
+                      242,
+                      265
+                    ],
+                    "media_key": "3_1879893403628146688",
+                    "media_url_https": "https://pbs.twimg.com/media/Gha5FyrbEAAD_cG.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/DWvZDNLGf0",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "large": {
+                        "faces": []
+                      },
+                      "medium": {
+                        "faces": []
+                      },
+                      "small": {
+                        "faces": []
+                      },
+                      "orig": {
+                        "faces": []
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 1750,
+                        "w": 1243,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 1200,
+                        "w": 852,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 680,
+                        "w": 483,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 1750,
+                      "width": 1243,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 220,
+                          "w": 1243,
+                          "h": 696
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1243,
+                          "h": 1243
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1243,
+                          "h": 1417
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 875,
+                          "h": 1750
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 1243,
+                          "h": 1750
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879893403628146688"
+                      }
+                    }
+                  }
+                ]
+              },
+              "favorite_count": 75,
+              "favorited": false,
+              "full_text": "🇮🇹 Chalo Italy 🇮🇹\n\n🚨Ultra Lowest Fare Alert🚨\n\nMumbai ➡️ Rome\n✈️ Royal Jordanian\n📅29/5\n💵 8.9K with any method\n🎒23Kgs\n💻 Cleartrip \n\nVisit:\n🏙️Milan\n🛶 Venice \n🏟️Rome\n⛪Vatican City\n🪻Florence, \n🏞️Cinque Terre\n🏖️Amalfi Coast\n\n#Italy\n#Mumbai\n#Europe https://t.co/DWvZDNLGf0",
+              "is_quote_status": false,
+              "lang": "en",
+              "possibly_sensitive": false,
+              "possibly_sensitive_editable": true,
+              "quote_count": 1,
+              "reply_count": 10,
+              "retweet_count": 2,
+              "retweeted": false,
+              "user_id_str": "3127263938",
+              "id_str": "1879893406601842929"
+            }
+          }
+        },
+        "tweetDisplayType": "Tweet"
+      }
+    }
+  },
+  {
+    "entryId": "tweet-1879884245667356827",
+    "sortIndex": "1821415152203746507",
+    "content": {
+      "entryType": "TimelineTimelineItem",
+      "__typename": "TimelineTimelineItem",
+      "itemContent": {
+        "itemType": "TimelineTweet",
+        "__typename": "TimelineTweet",
+        "tweet_results": {
+          "result": {
+            "__typename": "Tweet",
+            "rest_id": "1879884245667356827",
+            "core": {
+              "user_results": {
+                "result": {
+                  "__typename": "User",
+                  "id": "VXNlcjoxMzYyMTIwOTQ=",
+                  "rest_id": "136212094",
+                  "affiliates_highlighted_label": {},
+                  "has_graduated_access": true,
+                  "is_blue_verified": true,
+                  "profile_image_shape": "Circle",
+                  "legacy": {
+                    "following": false,
+                    "can_dm": true,
+                    "can_media_tag": true,
+                    "created_at": "Fri Apr 23 09:21:35 +0000 2010",
+                    "default_profile": false,
+                    "default_profile_image": false,
+                    "description": "Dad. Entrepreneur. Building @thepfcclub. We will make you healthier and stronger while working on your Habits. Join the Club - https://t.co/DnsInnHVWP",
+                    "entities": {
+                      "description": {
+                        "urls": [
+                          {
+                            "display_url": "t.me/ProjectFitCo",
+                            "expanded_url": "https://t.me/ProjectFitCo",
+                            "url": "https://t.co/DnsInnHVWP",
+                            "indices": [
+                              127,
+                              150
+                            ]
+                          }
+                        ]
+                      },
+                      "url": {
+                        "urls": [
+                          {
+                            "display_url": "thepfc.club/collections/on…",
+                            "expanded_url": "https://thepfc.club/collections/online-diet-workout-trainers",
+                            "url": "https://t.co/YPgJIdESFz",
+                            "indices": [
+                              0,
+                              23
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "fast_followers_count": 0,
+                    "favourites_count": 13909,
+                    "followers_count": 78491,
+                    "friends_count": 978,
+                    "has_custom_timelines": true,
+                    "is_translator": false,
+                    "listed_count": 239,
+                    "location": "To start fitness journey, DM",
+                    "media_count": 11937,
+                    "name": "Chirag Barjatya",
+                    "normal_followers_count": 78491,
+                    "pinned_tweet_ids_str": [
+                      "1831244606995914781"
+                    ],
+                    "possibly_sensitive": false,
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/136212094/1676099728",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1654470380981977088/DXbPEUg0_normal.jpg",
+                    "profile_interstitial_type": "",
+                    "screen_name": "chiragbarjatyaa",
+                    "statuses_count": 97816,
+                    "translator_type": "none",
+                    "url": "https://t.co/YPgJIdESFz",
+                    "verified": false,
+                    "want_retweets": false,
+                    "withheld_in_countries": []
+                  },
+                  "professional": {
+                    "rest_id": "1464822322460770306",
+                    "professional_type": "Business",
+                    "category": [
+                      {
+                        "id": 800,
+                        "name": "Sports, Fitness & Recreation",
+                        "icon_name": "IconBriefcaseStroke"
+                      }
+                    ]
+                  },
+                  "tipjar_settings": {
+                    "is_enabled": true
+                  },
+                  "verified_phone_status": false
+                }
+              }
+            },
+            "card": {
+              "rest_id": "https://t.co/R3UwJriaHt",
+              "legacy": {
+                "binding_values": [
+                  {
+                    "key": "player_url",
+                    "value": {
+                      "string_value": "https://www.youtube.com/embed/6LIbHYdgDx0",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "player_image_large",
+                    "value": {
+                      "image_value": {
+                        "height": 320,
+                        "width": 569,
+                        "url": "https://pbs.twimg.com/card_img/1879884371458654208/bUqyYgC3?format=jpg&name=800x320_1"
+                      },
+                      "type": "IMAGE"
+                    }
+                  },
+                  {
+                    "key": "player_image",
+                    "value": {
+                      "image_value": {
+                        "height": 158,
+                        "width": 280,
+                        "url": "https://pbs.twimg.com/card_img/1879884371458654208/bUqyYgC3?format=jpg&name=280x280"
+                      },
+                      "type": "IMAGE"
+                    }
+                  },
+                  {
+                    "key": "app_star_rating",
+                    "value": {
+                      "string_value": "4.67788",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "description",
+                    "value": {
+                      "string_value": "I'm Dr. Arib Deshmukh, a practicing Sports Dentist who loves Dentistry, Technology, Gaming and Sports. In this video, I will be explaining the key difference...",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "player_width",
+                    "value": {
+                      "string_value": "1280",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "domain",
+                    "value": {
+                      "string_value": "www.youtube.com",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "app_is_free",
+                    "value": {
+                      "string_value": "true",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "site",
+                    "value": {
+                      "scribe_key": "publisher_id",
+                      "type": "USER",
+                      "user_value": {
+                        "id_str": "10228272",
+                        "path": []
+                      }
+                    }
+                  },
+                  {
+                    "key": "player_image_original",
+                    "value": {
+                      "image_value": {
+                        "height": 720,
+                        "width": 1280,
+                        "url": "https://pbs.twimg.com/card_img/1879884371458654208/bUqyYgC3?format=jpg&name=orig"
+                      },
+                      "type": "IMAGE"
+                    }
+                  },
+                  {
+                    "key": "app_num_ratings",
+                    "value": {
+                      "string_value": "39,867,431",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "app_price_amount",
+                    "value": {
+                      "string_value": "0.0",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "player_height",
+                    "value": {
+                      "string_value": "720",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "vanity_url",
+                    "value": {
+                      "scribe_key": "vanity_url",
+                      "string_value": "youtube.com",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "app_name",
+                    "value": {
+                      "string_value": "YouTube: Watch, Listen, Stream",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "player_image_small",
+                    "value": {
+                      "image_value": {
+                        "height": 81,
+                        "width": 144,
+                        "url": "https://pbs.twimg.com/card_img/1879884371458654208/bUqyYgC3?format=jpg&name=144x144"
+                      },
+                      "type": "IMAGE"
+                    }
+                  },
+                  {
+                    "key": "title",
+                    "value": {
+                      "string_value": "Dentist explains the difference between Electric vs Manual Toothbru...",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "app_price_currency",
+                    "value": {
+                      "string_value": "USD",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "card_url",
+                    "value": {
+                      "scribe_key": "card_url",
+                      "string_value": "https://t.co/R3UwJriaHt",
+                      "type": "STRING"
+                    }
+                  },
+                  {
+                    "key": "player_image_color",
+                    "value": {
+                      "image_color_value": {
+                        "palette": [
+                          {
+                            "rgb": {
+                              "blue": 203,
+                              "green": 210,
+                              "red": 214
+                            },
+                            "percentage": 46.81
+                          },
+                          {
+                            "rgb": {
+                              "blue": 45,
+                              "green": 223,
+                              "red": 254
+                            },
+                            "percentage": 14.89
+                          },
+                          {
+                            "rgb": {
+                              "blue": 44,
+                              "green": 42,
+                              "red": 42
+                            },
+                            "percentage": 8.78
+                          },
+                          {
+                            "rgb": {
+                              "blue": 135,
+                              "green": 186,
+                              "red": 210
+                            },
+                            "percentage": 6.77
+                          },
+                          {
+                            "rgb": {
+                              "blue": 108,
+                              "green": 214,
+                              "red": 234
+                            },
+                            "percentage": 4.86
+                          }
+                        ]
+                      },
+                      "type": "IMAGE_COLOR"
+                    }
+                  },
+                  {
+                    "key": "player_image_x_large",
+                    "value": {
+                      "image_value": {
+                        "height": 720,
+                        "width": 1280,
+                        "url": "https://pbs.twimg.com/card_img/1879884371458654208/bUqyYgC3?format=png&name=2048x2048_2_exp"
+                      },
+                      "type": "IMAGE"
+                    }
+                  }
+                ],
+                "card_platform": {
+                  "platform": {
+                    "audience": {
+                      "name": "production"
+                    },
+                    "device": {
+                      "name": "Swift",
+                      "version": "12"
+                    }
+                  }
+                },
+                "name": "player",
+                "url": "https://t.co/R3UwJriaHt",
+                "user_refs_results": [
+                  {
+                    "result": {
+                      "__typename": "User",
+                      "id": "VXNlcjoxMDIyODI3Mg==",
+                      "rest_id": "10228272",
+                      "affiliates_highlighted_label": {},
+                      "has_graduated_access": true,
+                      "is_blue_verified": true,
+                      "profile_image_shape": "Square",
+                      "legacy": {
+                        "following": true,
+                        "can_dm": false,
+                        "can_media_tag": true,
+                        "created_at": "Tue Nov 13 21:43:46 +0000 2007",
+                        "default_profile": false,
+                        "default_profile_image": false,
+                        "description": "like and subscribe.",
+                        "entities": {
+                          "description": {
+                            "urls": []
+                          },
+                          "url": {
+                            "urls": [
+                              {
+                                "display_url": "youtube.com",
+                                "expanded_url": "http://youtube.com",
+                                "url": "https://t.co/bUisN3Y1A6",
+                                "indices": [
+                                  0,
+                                  23
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "fast_followers_count": 0,
+                        "favourites_count": 6160,
+                        "followers_count": 79508224,
+                        "friends_count": 1158,
+                        "has_custom_timelines": true,
+                        "is_translator": false,
+                        "listed_count": 78234,
+                        "location": "San Bruno, CA",
+                        "media_count": 15956,
+                        "name": "YouTube",
+                        "normal_followers_count": 79508224,
+                        "pinned_tweet_ids_str": [],
+                        "possibly_sensitive": false,
+                        "profile_banner_url": "https://pbs.twimg.com/profile_banners/10228272/1729176847",
+                        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1427292844612595720/RC1YSvuT_normal.jpg",
+                        "profile_interstitial_type": "",
+                        "screen_name": "YouTube",
+                        "statuses_count": 59786,
+                        "translator_type": "regular",
+                        "url": "https://t.co/bUisN3Y1A6",
+                        "verified": false,
+                        "verified_type": "Business",
+                        "want_retweets": true,
+                        "withheld_in_countries": []
+                      },
+                      "tipjar_settings": {},
+                      "verified_phone_status": false
+                    }
+                  }
+                ]
+              }
+            },
+            "unmention_data": {},
+            "edit_control": {
+              "edit_tweet_ids": [
+                "1879884245667356827"
+              ],
+              "editable_until_msecs": "1737037905000",
+              "is_edit_eligible": false,
+              "edits_remaining": "5"
+            },
+            "is_translatable": false,
+            "views": {
+              "count": "33191",
+              "state": "EnabledWithCount"
+            },
+            "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+            "legacy": {
+              "bookmark_count": 595,
+              "bookmarked": true,
+              "created_at": "Thu Jan 16 13:31:45 +0000 2025",
+              "conversation_id_str": "1879883021308055719",
+              "display_text_range": [
+                14,
+                57
+              ],
+              "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "timestamps": [],
+                "urls": [
+                  {
+                    "display_url": "youtube.com/watch?v=6LIbHY…",
+                    "expanded_url": "https://www.youtube.com/watch?v=6LIbHYdgDx0",
+                    "url": "https://t.co/R3UwJriaHt",
+                    "indices": [
+                      34,
+                      57
+                    ]
+                  }
+                ],
+                "user_mentions": [
+                  {
+                    "id_str": "1886287622",
+                    "name": "अशोक | ଅଶୋକ | Ashok",
+                    "screen_name": "ashokshasmal",
+                    "indices": [
+                      0,
+                      13
+                    ]
+                  }
+                ]
+              },
+              "favorite_count": 177,
+              "favorited": false,
+              "full_text": "@ashokshasmal great video on this https://t.co/R3UwJriaHt",
+              "in_reply_to_screen_name": "ashokshasmal",
+              "in_reply_to_status_id_str": "1879883413722980464",
+              "in_reply_to_user_id_str": "1886287622",
+              "is_quote_status": false,
+              "lang": "en",
+              "possibly_sensitive": false,
+              "possibly_sensitive_editable": true,
+              "quote_count": 1,
+              "reply_count": 3,
+              "retweet_count": 19,
+              "retweeted": false,
+              "user_id_str": "136212094",
+              "id_str": "1879884245667356827"
+            }
+          }
+        },
+        "tweetDisplayType": "Tweet"
+      }
+    }
+  },
+  {
+    "entryId": "tweet-1879861213372535248",
+    "sortIndex": "1821413715561936562",
+    "content": {
+      "entryType": "TimelineTimelineItem",
+      "__typename": "TimelineTimelineItem",
+      "itemContent": {
+        "itemType": "TimelineTweet",
+        "__typename": "TimelineTweet",
+        "tweet_results": {
+          "result": {
+            "__typename": "Tweet",
+            "rest_id": "1879861213372535248",
+            "core": {
+              "user_results": {
+                "result": {
+                  "__typename": "User",
+                  "id": "VXNlcjoxNDE0NTExNDQ=",
+                  "rest_id": "141451144",
+                  "affiliates_highlighted_label": {},
+                  "has_graduated_access": true,
+                  "is_blue_verified": true,
+                  "profile_image_shape": "Circle",
+                  "legacy": {
+                    "following": false,
+                    "can_dm": true,
+                    "can_media_tag": true,
+                    "created_at": "Sat May 08 03:56:45 +0000 2010",
+                    "default_profile": false,
+                    "default_profile_image": false,
+                    "description": "CEO @fikristudio - Product design agency specialized in SaaS",
+                    "entities": {
+                      "description": {
+                        "urls": []
+                      },
+                      "url": {
+                        "urls": [
+                          {
+                            "display_url": "fikristudio.com",
+                            "expanded_url": "http://fikristudio.com",
+                            "url": "https://t.co/J0ZamBjsRH",
+                            "indices": [
+                              0,
+                              23
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "fast_followers_count": 0,
+                    "favourites_count": 3960,
+                    "followers_count": 9261,
+                    "friends_count": 499,
+                    "has_custom_timelines": true,
+                    "is_translator": false,
+                    "listed_count": 113,
+                    "location": "",
+                    "media_count": 1034,
+                    "name": "Bagus Fikri - SaaS Designer",
+                    "normal_followers_count": 9261,
+                    "pinned_tweet_ids_str": [
+                      "1804847114679369811"
+                    ],
+                    "possibly_sensitive": false,
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/141451144/1692416669",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1795786440158351360/YBUBEMxz_normal.jpg",
+                    "profile_interstitial_type": "",
+                    "screen_name": "bagus_fikri",
+                    "statuses_count": 5619,
+                    "translator_type": "none",
+                    "url": "https://t.co/J0ZamBjsRH",
+                    "verified": false,
+                    "want_retweets": false,
+                    "withheld_in_countries": []
+                  },
+                  "professional": {
+                    "rest_id": "1545538424345870336",
+                    "professional_type": "Creator",
+                    "category": [
+                      {
+                        "id": 1018,
+                        "name": "UX Designer",
+                        "icon_name": "IconBriefcaseStroke"
+                      }
+                    ]
+                  },
+                  "tipjar_settings": {
+                    "is_enabled": true
+                  },
+                  "verified_phone_status": false
+                }
+              }
+            },
+            "unmention_data": {},
+            "edit_control": {
+              "edit_tweet_ids": [
+                "1879861213372535248"
+              ],
+              "editable_until_msecs": "1737032414000",
+              "is_edit_eligible": false,
+              "edits_remaining": "5"
+            },
+            "is_translatable": false,
+            "views": {
+              "count": "24995",
+              "state": "EnabledWithCount"
+            },
+            "source": "<a href=\"https://typefully.com/\" rel=\"nofollow\">Typefully</a>",
+            "legacy": {
+              "bookmark_count": 346,
+              "bookmarked": true,
+              "created_at": "Thu Jan 16 12:00:14 +0000 2025",
+              "conversation_id_str": "1879861213372535248",
+              "display_text_range": [
+                0,
+                41
+              ],
+              "entities": {
+                "hashtags": [],
+                "media": [
+                  {
+                    "display_url": "pic.x.com/jL0PWyEo4H",
+                    "expanded_url": "https://x.com/bagus_fikri/status/1879861213372535248/photo/1",
+                    "id_str": "1879861203843067905",
+                    "indices": [
+                      42,
+                      65
+                    ],
+                    "media_key": "3_1879861203843067905",
+                    "media_url_https": "https://pbs.twimg.com/media/GhabzhIasAEUWUV.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/jL0PWyEo4H",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "all": {
+                        "tags": [
+                          {
+                            "user_id": "1636498573",
+                            "name": "Fikri Studio",
+                            "screen_name": "FikriStudio",
+                            "type": "user"
+                          }
+                        ]
+                      },
+                      "large": {
+                        "faces": [
+                          {
+                            "x": 400,
+                            "y": 977,
+                            "h": 197,
+                            "w": 197
+                          },
+                          {
+                            "x": 1763,
+                            "y": 249,
+                            "h": 193,
+                            "w": 193
+                          }
+                        ]
+                      },
+                      "medium": {
+                        "faces": [
+                          {
+                            "x": 234,
+                            "y": 572,
+                            "h": 115,
+                            "w": 115
+                          },
+                          {
+                            "x": 1033,
+                            "y": 146,
+                            "h": 113,
+                            "w": 113
+                          }
+                        ]
+                      },
+                      "small": {
+                        "faces": [
+                          {
+                            "x": 132,
+                            "y": 324,
+                            "h": 65,
+                            "w": 65
+                          },
+                          {
+                            "x": 585,
+                            "y": 82,
+                            "h": 64,
+                            "w": 64
+                          }
+                        ]
+                      },
+                      "orig": {
+                        "faces": [
+                          {
+                            "x": 975,
+                            "y": 2383,
+                            "h": 482,
+                            "w": 482
+                          },
+                          {
+                            "x": 4299,
+                            "y": 609,
+                            "h": 472,
+                            "w": 472
+                          }
+                        ]
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 1483,
+                        "w": 2048,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 869,
+                        "w": 1200,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 492,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 3615,
+                      "width": 4992,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 4992,
+                          "h": 2796
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 3615,
+                          "h": 3615
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 3171,
+                          "h": 3615
+                        },
+                        {
+                          "x": 217,
+                          "y": 0,
+                          "w": 1808,
+                          "h": 3615
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 4992,
+                          "h": 3615
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879861203843067905"
+                      }
+                    }
+                  }
+                ],
+                "symbols": [],
+                "timestamps": [],
+                "urls": [],
+                "user_mentions": []
+              },
+              "extended_entities": {
+                "media": [
+                  {
+                    "display_url": "pic.x.com/jL0PWyEo4H",
+                    "expanded_url": "https://x.com/bagus_fikri/status/1879861213372535248/photo/1",
+                    "id_str": "1879861203843067905",
+                    "indices": [
+                      42,
+                      65
+                    ],
+                    "media_key": "3_1879861203843067905",
+                    "media_url_https": "https://pbs.twimg.com/media/GhabzhIasAEUWUV.jpg",
+                    "type": "photo",
+                    "url": "https://t.co/jL0PWyEo4H",
+                    "ext_media_availability": {
+                      "status": "Available"
+                    },
+                    "features": {
+                      "all": {
+                        "tags": [
+                          {
+                            "user_id": "1636498573",
+                            "name": "Fikri Studio",
+                            "screen_name": "FikriStudio",
+                            "type": "user"
+                          }
+                        ]
+                      },
+                      "large": {
+                        "faces": [
+                          {
+                            "x": 400,
+                            "y": 977,
+                            "h": 197,
+                            "w": 197
+                          },
+                          {
+                            "x": 1763,
+                            "y": 249,
+                            "h": 193,
+                            "w": 193
+                          }
+                        ]
+                      },
+                      "medium": {
+                        "faces": [
+                          {
+                            "x": 234,
+                            "y": 572,
+                            "h": 115,
+                            "w": 115
+                          },
+                          {
+                            "x": 1033,
+                            "y": 146,
+                            "h": 113,
+                            "w": 113
+                          }
+                        ]
+                      },
+                      "small": {
+                        "faces": [
+                          {
+                            "x": 132,
+                            "y": 324,
+                            "h": 65,
+                            "w": 65
+                          },
+                          {
+                            "x": 585,
+                            "y": 82,
+                            "h": 64,
+                            "w": 64
+                          }
+                        ]
+                      },
+                      "orig": {
+                        "faces": [
+                          {
+                            "x": 975,
+                            "y": 2383,
+                            "h": 482,
+                            "w": 482
+                          },
+                          {
+                            "x": 4299,
+                            "y": 609,
+                            "h": 472,
+                            "w": 472
+                          }
+                        ]
+                      }
+                    },
+                    "sizes": {
+                      "large": {
+                        "h": 1483,
+                        "w": 2048,
+                        "resize": "fit"
+                      },
+                      "medium": {
+                        "h": 869,
+                        "w": 1200,
+                        "resize": "fit"
+                      },
+                      "small": {
+                        "h": 492,
+                        "w": 680,
+                        "resize": "fit"
+                      },
+                      "thumb": {
+                        "h": 150,
+                        "w": 150,
+                        "resize": "crop"
+                      }
+                    },
+                    "original_info": {
+                      "height": 3615,
+                      "width": 4992,
+                      "focus_rects": [
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 4992,
+                          "h": 2796
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 3615,
+                          "h": 3615
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 3171,
+                          "h": 3615
+                        },
+                        {
+                          "x": 217,
+                          "y": 0,
+                          "w": 1808,
+                          "h": 3615
+                        },
+                        {
+                          "x": 0,
+                          "y": 0,
+                          "w": 4992,
+                          "h": 3615
+                        }
+                      ]
+                    },
+                    "media_results": {
+                      "result": {
+                        "media_key": "3_1879861203843067905"
+                      }
+                    }
+                  }
+                ]
+              },
+              "favorite_count": 384,
+              "favorited": false,
+              "full_text": "Analytics dashboard for business insights https://t.co/jL0PWyEo4H",
+              "is_quote_status": false,
+              "lang": "en",
+              "possibly_sensitive": false,
+              "possibly_sensitive_editable": true,
+              "quote_count": 2,
+              "reply_count": 5,
+              "retweet_count": 26,
+              "retweeted": false,
+              "user_id_str": "141451144",
+              "id_str": "1879861213372535248"
+            }
+          }
+        },
+        "tweetDisplayType": "Tweet"
+      }
+    }
+  }
+]
