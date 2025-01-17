@@ -11,6 +11,7 @@ export default function Home() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [view, setView] = useState('recent'); // 'search', 'recent', or 'analytics'
   const [pagination, setPagination] = useState({
     currentPage: 1,
@@ -22,9 +23,15 @@ export default function Home() {
     if (!query.trim() && page === 1) return;
     
     setLoading(true);
+    setError(null);
     try {
       const response = await fetch(`http://localhost:5001/search?query=${encodeURIComponent(query)}&page=${page}`);
       const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || `Search failed: ${response.statusText}`);
+      }
+      
       setResults(data.results || []);
       setPagination({
         currentPage: data.page,
@@ -33,6 +40,13 @@ export default function Home() {
       });
     } catch (error) {
       console.error('Error fetching bookmarks:', error);
+      setError(error.message);
+      setResults([]);
+      setPagination({
+        currentPage: 1,
+        totalPages: 0,
+        total: 0
+      });
     } finally {
       setLoading(false);
     }
@@ -77,6 +91,12 @@ export default function Home() {
               className="w-full p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-8"
             />
             
+            {error && (
+              <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                {error}
+              </div>
+            )}
+
             {loading ? (
               <div className="flex justify-center">
                 <Spinner />

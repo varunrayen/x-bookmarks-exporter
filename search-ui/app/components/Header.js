@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg z-50">
+    <header className="fixed top-0 left-0 right-0 bg-[#213363] shadow-lg z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0">

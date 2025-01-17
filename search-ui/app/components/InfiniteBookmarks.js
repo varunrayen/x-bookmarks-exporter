@@ -8,14 +8,19 @@ export default function InfiniteBookmarks() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
+  const [error, setError] = useState(null);
   const observerTarget = useRef(null);
 
   const fetchBookmarks = async (pageNum) => {
     if (loading || !hasMore) return;
     
     setLoading(true);
+    setError(null);
     try {
       const response = await fetch(`http://localhost:5001/bookmarks?page=${pageNum}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       
       if (data.results) {
@@ -26,6 +31,8 @@ export default function InfiniteBookmarks() {
       }
     } catch (error) {
       console.error('Error fetching bookmarks:', error);
+      setError('Failed to load bookmarks. Please try again later.');
+      setHasMore(false);
     } finally {
       setLoading(false);
     }
@@ -65,6 +72,24 @@ export default function InfiniteBookmarks() {
     <div className="space-y-4">
       <h2 className="text-2xl font-bold mb-6">Recent Bookmarks</h2>
       
+      {error && (
+        <div className="p-4 mb-4 text-red-700 bg-red-100 rounded-lg" role="alert">
+          <p>{error}</p>
+          <button 
+            onClick={() => {
+              setError(null);
+              setHasMore(true);
+              setPage(1);
+              setBookmarks([]);
+              fetchBookmarks(1);
+            }}
+            className="mt-2 text-sm font-medium text-red-700 hover:text-red-900"
+          >
+            Try Again
+          </button>
+        </div>
+      )}
+      
       {bookmarks.map((bookmark, index) => (
         <BookmarkCard key={`${bookmark.tweet_id}-${index}`} bookmark={bookmark} />
       ))}
@@ -77,11 +102,11 @@ export default function InfiniteBookmarks() {
       
       <div ref={observerTarget} className="h-4" />
       
-      {!hasMore && bookmarks.length > 0 && (
+      {!hasMore && bookmarks.length > 0 && !error && (
         <p className="text-center text-gray-500 py-4">No more bookmarks to load</p>
       )}
       
-      {!hasMore && bookmarks.length === 0 && (
+      {!hasMore && bookmarks.length === 0 && !error && (
         <p className="text-center text-gray-500 py-4">No bookmarks found</p>
       )}
     </div>
