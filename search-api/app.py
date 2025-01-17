@@ -9,6 +9,9 @@ app = Flask(__name__)
 CORS(app)
 load_dotenv()
 
+# Semantic search configuration
+SIMILARITY_THRESHOLD = 0.7
+
 def get_db_connection():
     return psycopg2.connect(
         dbname="bookmarks",
@@ -25,8 +28,11 @@ def index():
 @app.route('/search', methods=['GET'])
 def search():
     query = request.args.get('query', '').strip()
+    page = int(request.args.get('page', 1))
+    per_page = int(request.args.get('per_page', 10))
+    
     if not query:
-        return {'results': []}
+        return {'results': [], 'total': 0, 'page': page, 'per_page': per_page}
 
     try:
         # Generate embedding for query
@@ -36,6 +42,19 @@ def search():
         # Search in database using embeddings
         conn = get_db_connection()
         cursor = conn.cursor()
+        
+        # First get total count of matching results
+        cursor.execute(
+            """
+            SELECT COUNT(*)
+            FROM bookmarked_tweets bt
+            JOIN tweet_embeddings te ON bt.tweet_id = te.tweet_id
+            WHERE (te.embedding <-> %s::vector) < %s
+            """,
+            (query_embedding, SIMILARITY_THRESHOLD))
+        total_results = cursor.fetchone()[0]
+        
+        # Then get paginated results with similarity threshold
         cursor.execute(
             """
             SELECT bt.tweet_id, bt.url, bt.full_text, bt.timestamp, bt.media_type, 
@@ -44,10 +63,11 @@ def search():
                    te.embedding <-> %s::vector AS distance
             FROM bookmarked_tweets bt
             JOIN tweet_embeddings te ON bt.tweet_id = te.tweet_id
+            WHERE (te.embedding <-> %s::vector) < %s
             ORDER BY distance ASC
-            LIMIT 5;
+            LIMIT %s OFFSET %s;
             """,
-            (query_embedding,)
+            (query_embedding, query_embedding, SIMILARITY_THRESHOLD, per_page, (page - 1) * per_page)
         )
 
         results = cursor.fetchall()
@@ -55,7 +75,13 @@ def search():
         conn.close()
 
         if not results:
-            return {'results': []}
+            return {
+                'results': [],
+                'total': total_results,
+                'page': page,
+                'per_page': per_page,
+                'total_pages': (total_results + per_page - 1) // per_page
+            }
 
         # Prepare results
         results_list = []
@@ -79,7 +105,13 @@ def search():
                 'similarity': similarity
             })
 
-        return {'results': results_list}
+        return {
+            'results': results_list,
+            'total': total_results,
+            'page': page,
+            'per_page': per_page,
+            'total_pages': (total_results + per_page - 1) // per_page
+        }
 
     except Exception as e:
         return {'error': str(e)}
