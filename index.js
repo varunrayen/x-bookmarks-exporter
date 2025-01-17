@@ -38,6 +38,7 @@ async function saveTweetsToDatabase(tweets) {
         console.log(`Saved tweet ${tweet.id}`);
       } else {
         console.log(`Skipping existing tweet ${tweet.id}`);
+        process.exit(0);
       }
     }
     console.log(`Processing complete for ${tweets.length} tweets`);
@@ -132,7 +133,15 @@ async function fetchBookmarks(cursor = null) {
     const data = await response.json();
 
     const entries = data.data?.bookmark_timeline_v2?.timeline?.instructions?.[0]?.entries || [];
+    
     const tweetEntries = entries.filter(entry => entry.entryId.startsWith("tweet-"));
+
+    // Add check for empty entries
+    if (!tweetEntries || tweetEntries.length === 0) {
+      console.log("No entries found, stopping program");
+      process.exit(0);
+    }
+    
     const parsedTweets = tweetEntries.map(parseTweet);
 
     console.log("Received data:", parsedTweets);

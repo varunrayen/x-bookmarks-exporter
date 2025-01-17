@@ -1,0 +1,15 @@
+[project]
+name = "search-module"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-community>=0.3.14",
+    "langchain>=0.3.14",
+    "openai>=1.59.7",
+    "pgvector>=0.3.6",
+    "psycopg2-binary>=2.9.10",
+    "tiktoken>=0.8.0",
+    "python-dotenv>=1.0.1",
+]
