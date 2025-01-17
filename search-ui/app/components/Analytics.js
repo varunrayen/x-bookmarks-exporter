@@ -28,10 +28,9 @@ ChartJS.register(
 );
 
 export default function Analytics() {
-  // Dummy data for analytics
-  const analyticsData = {
-    totalBookmarks: 256,
-    bookmarksThisWeek: 23,
+  const [analyticsData, setAnalyticsData] = useState({
+    totalBookmarks: 0,
+    bookmarksThisWeek: 0,
     topDomains: [
       { name: 'github.com', count: 45 },
       { name: 'medium.com', count: 32 },
@@ -54,7 +53,26 @@ export default function Analytics() {
       { name: 'Business', count: 35 },
       { name: 'Other', count: 15 },
     ],
-  };
+  });
+
+  useEffect(() => {
+    const fetchAnalytics = async () => {
+      try {
+        const response = await fetch('http://localhost:5001/analytics');
+        const data = await response.json();
+        
+        setAnalyticsData(prevData => ({
+          ...prevData,
+          totalBookmarks: data.total_bookmarks,
+          bookmarksThisWeek: data.new_bookmarks_this_week,
+        }));
+      } catch (error) {
+        console.error('Error fetching analytics:', error);
+      }
+    };
+
+    fetchAnalytics();
+  }, []);
 
   const monthlyChartData = {
     labels: analyticsData.bookmarksByMonth.map(item => item.month),

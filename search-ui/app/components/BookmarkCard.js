@@ -1,10 +1,19 @@
 'use client';
 
 import { formatDistanceToNow, format } from 'date-fns';
+import { useState } from 'react';
 
 export default function BookmarkCard({ bookmark }) {
   const tweetDate = new Date(bookmark.created_at);
-  
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const categories = ['Work', 'Personal', 'Reading List', 'Inspiration', 'Tech'];
+
+  const handleCategorySelect = (category) => {
+    // TODO: Implement category assignment logic
+    console.log(`Assigning category: ${category} to bookmark: ${bookmark.id}`);
+    setIsDropdownOpen(false);
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden border border-gray-100">
       <div className="p-4">
@@ -84,37 +93,34 @@ export default function BookmarkCard({ bookmark }) {
       </div>
       
       <div className="bg-gray-50 px-4 py-3 border-t border-gray-100">
-        <div className="flex justify-between items-center">
-          <div className="flex space-x-6">
-            <button className="text-gray-600 hover:text-blue-600 text-sm flex items-center transition-colors duration-200">
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-              Reply
-            </button>
-            <button className="text-gray-600 hover:text-green-600 text-sm flex items-center transition-colors duration-200">
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-              Retweet
-            </button>
-            <button className="text-gray-600 hover:text-red-600 text-sm flex items-center transition-colors duration-200">
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
-              Like
-            </button>
-          </div>
-          <button className="text-gray-600 hover:text-blue-600 text-sm flex items-center transition-colors duration-200">
+        <div className="flex justify-end items-center relative">
+          <button 
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="text-gray-600 hover:text-purple-600 text-sm flex items-center transition-colors duration-200"
+          >
             <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                    d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
             </svg>
-            Share
+            Add Category
           </button>
+          
+          {isDropdownOpen && (
+            <div className="absolute bottom-full right-0 mb-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+              <div className="py-1" role="menu" aria-orientation="vertical">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => handleCategorySelect(category)}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                    role="menuitem"
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
