@@ -9,6 +9,7 @@ export default function InfiniteBookmarks() {
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [error, setError] = useState(null);
+  const [totalBookmarks, setTotalBookmarks] = useState(0);
   const observerTarget = useRef(null);
 
   const fetchBookmarks = async (pageNum) => {
@@ -26,6 +27,7 @@ export default function InfiniteBookmarks() {
       if (data.results) {
         setBookmarks(prev => [...prev, ...data.results]);
         setHasMore(data.results.length > 0);
+        setTotalBookmarks(data.total);
       } else {
         setHasMore(false);
       }
@@ -69,8 +71,11 @@ export default function InfiniteBookmarks() {
   }, []);
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-bold mb-6">Recent Bookmarks</h2>
+    <div className="space-y-4 pb-24">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold">Recent Bookmarks</h2>
+        <span className="text-gray-600">Total: {totalBookmarks}</span>
+      </div>
       
       {error && (
         <div className="p-4 mb-4 text-red-700 bg-red-100 rounded-lg" role="alert">
@@ -94,13 +99,16 @@ export default function InfiniteBookmarks() {
         <BookmarkCard key={`${bookmark.tweet_id}-${index}`} bookmark={bookmark} />
       ))}
       
+      <div ref={observerTarget} className="h-10" />
+      
       {loading && (
-        <div className="text-center py-4">
-          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent"></div>
+        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
+          <div className="flex items-center space-x-2">
+            <div className="inline-block h-5 w-5 animate-spin rounded-full border-3 border-solid border-blue-600 border-r-transparent"></div>
+            <span className="text-sm text-gray-700">Loading more...</span>
+          </div>
         </div>
       )}
-      
-      <div ref={observerTarget} className="h-4" />
       
       {!hasMore && bookmarks.length > 0 && !error && (
         <p className="text-center text-gray-500 py-4">No more bookmarks to load</p>
