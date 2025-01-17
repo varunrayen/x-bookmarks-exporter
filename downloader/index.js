@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { Pool } = require('pg');
 const fs = require('fs');
+const Queue = require('bull');
 
 // Initialize PostgreSQL connection pool
 const pool = new Pool({
@@ -38,7 +39,6 @@ async function saveTweetsToDatabase(tweets) {
         console.log(`Saved tweet ${tweet.id}`);
       } else {
         console.log(`Skipping existing tweet ${tweet.id}`);
-        process.exit(0);
       }
     }
     console.log(`Processing complete for ${tweets.length} tweets`);
@@ -143,10 +143,7 @@ async function fetchBookmarks(cursor = null) {
     }
     
     const parsedTweets = tweetEntries.map(parseTweet);
-
-    console.log("Received data:", parsedTweets);
     await saveTweetsToDatabase(parsedTweets);
-
     const nextCursor = getNextCursor(entries);
 
     if (nextCursor) {
@@ -226,6 +223,26 @@ const getNextCursor = (entries) => {
   return cursorEntry ? cursorEntry.content.value : null;
 };
 
-
-
 fetchBookmarks();
+
+// Create a queue
+// const bookmarkQueue = new Queue('bookmark-fetching', process.env.REDIS_URL);
+
+// // Define the job processor
+// bookmarkQueue.process(async (job) => {
+//   console.log('Running scheduled bookmark fetch:', new Date().toISOString());
+//   try {
+//     await fetchBookmarks();
+//   } catch (error) {
+//     console.error('Scheduled fetch failed:', error);
+//   }
+// });
+
+// // Add recurring job - runs every 30 seconds
+// bookmarkQueue.add({}, {
+//   repeat: {
+//     every: 30 * 1000 // 30 seconds in milliseconds
+//   }
+// });
+
+// console.log('Bookmark fetcher started, waiting for scheduled runs...');

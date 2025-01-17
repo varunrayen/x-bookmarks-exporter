@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bull": "^4.16.5",
     "dotenv": "^16.4.7",
     "node-pg-migrate": "^7.9.0",
     "pg": "^8.13.1"
