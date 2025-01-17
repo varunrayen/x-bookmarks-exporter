@@ -80,3 +80,31 @@ class BookmarkService:
                 bookmark['similarity'] = similarity
             formatted_results.append(bookmark)
         return formatted_results 
+
+    @staticmethod
+    def get_analytics():
+        from datetime import datetime, timedelta
+        
+        try:
+            # Get total bookmarks
+            total_bookmarks = DatabaseHandler.execute_query(
+                "SELECT COUNT(*) FROM bookmarked_tweets"
+            )[0][0]
+            
+            # Get new bookmarks this week
+            week_ago = datetime.now() - timedelta(days=7)
+            new_bookmarks_this_week = DatabaseHandler.execute_query(
+                """
+                SELECT COUNT(*) 
+                FROM bookmarked_tweets 
+                WHERE created_at >= %s
+                """, 
+                (week_ago,)
+            )[0][0]
+            
+            return {
+                'total_bookmarks': total_bookmarks,
+                'new_bookmarks_this_week': new_bookmarks_this_week
+            }
+        except Exception as e:
+            raise Exception(f"Error getting analytics: {str(e)}") 

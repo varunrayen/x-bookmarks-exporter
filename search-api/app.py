@@ -47,5 +47,13 @@ def get_bookmarks():
     except Exception as e:
         return {'error': str(e)}
 
+@app.route('/analytics', methods=['GET'])
+def get_analytics():
+    try:
+        analytics = BookmarkService.get_analytics()
+        return analytics
+    except Exception as e:
+        return {'error': str(e)}
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)
