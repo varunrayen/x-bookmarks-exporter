@@ -14,10 +14,12 @@ conn = psycopg2.connect(
 embeddings_model = get_embeddings()
 
 # Query string
-query = "netflix"
+query = "huggingface"
 
 # Generate embedding for query
 query_embedding = embeddings_model.embed_query(query)
+
+print(query_embedding)
 
 # Perform similarity search in Postgres
 cursor = conn.cursor()

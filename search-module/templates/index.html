@@ -1,0 +1,79 @@
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Search</h1>
+    <form id="searchForm" class="mb-4">
+        <input type="text" id="searchQuery" placeholder="Enter search term" class="border p-2 rounded w-full mb-2">
+        <button type="submit" class="bg-blue-500 text-white p-2 rounded hidden">Search</button>
+    </form>
+    <div id="searchResults" class="mt-4"></div>
+</div>
+
+<script>
+    let debounceTimeout;
+
+    function debounce(func, wait) {
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(debounceTimeout);
+                func(...args);
+            };
+            clearTimeout(debounceTimeout);
+            debounceTimeout = setTimeout(later, wait);
+        };
+    }
+
+    function performSearch(query) {
+        if (!query.trim()) {
+            document.getElementById('searchResults').innerHTML = '';
+            return;
+        }
+
+        fetch(`/search?query=${encodeURIComponent(query)}`)
+            .then(response => response.json())
+            .then(data => {
+                const resultsDiv = document.getElementById('searchResults');
+                resultsDiv.innerHTML = '';
+                if (data.results && data.results.length > 0) {
+                    data.results.forEach(result => {
+                        const resultItem = document.createElement('div');
+                        resultItem.className = 'bg-white p-4 mb-4 rounded shadow';
+
+                        const resultText = document.createElement('div');
+                        resultText.className = 'text-lg font-semibold';
+                        resultText.textContent = result.text;
+
+                        const resultSimilarity = document.createElement('div');
+                        resultSimilarity.className = 'text-sm text-gray-500';
+                        resultSimilarity.textContent = `Similarity: ${result.similarity.toFixed(1)}%`;
+
+                        const resultLink = document.createElement('a');
+                        resultLink.href = result.url;
+                        resultLink.target = '_blank';
+                        resultLink.className = 'text-blue-500 hover:underline';
+                        resultLink.textContent = 'View Tweet';
+
+                        resultItem.appendChild(resultText);
+                        resultItem.appendChild(resultSimilarity);
+                        resultItem.appendChild(resultLink);
+                        resultsDiv.appendChild(resultItem);
+                    });
+                } else {
+                    resultsDiv.textContent = 'No results found.';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching search results:', error);
+            });
+    }
+
+    const debouncedSearch = debounce(performSearch, 300);
+
+    document.getElementById('searchQuery').addEventListener('input', function(event) {
+        debouncedSearch(event.target.value);
+    });
+
+    document.getElementById('searchForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+    });
+</script>
