@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import ResultCard from './components/ResultCard';
 import Pagination from './components/Pagination';
 import InfiniteBookmarks from './components/InfiniteBookmarks';
+import Spinner from './components/Spinner';
 
 export default function Home() {
   const [query, setQuery] = useState('');
@@ -16,7 +17,7 @@ export default function Home() {
     total: 0
   });
 
-  const handleSearch = async (page = 1) => {
+  const handleSearch = useCallback(async (page = 1) => {
     if (!query.trim() && page === 1) return;
     
     setLoading(true);
@@ -34,7 +35,20 @@ export default function Home() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [query]);
+
+  // Debounced search effect
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (query.trim()) {
+        handleSearch(1);
+      } else {
+        setResults([]);
+      }
+    }, 300); // 300ms debounce
+
+    return () => clearTimeout(timeoutId);
+  }, [query, handleSearch]);
 
   const handlePageChange = (newPage) => {
     handleSearch(newPage);
@@ -64,22 +78,19 @@ export default function Home() {
         {view === 'search' ? (
           <div className="mb-8">
             <h2 className="text-2xl font-bold mb-4">Search Bookmarks</h2>
-            <div className="flex gap-2 mb-8">
+            <div className="relative mb-8">
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSearch(1)}
                 placeholder="Search your bookmarks..."
-                className="flex-1 p-2 border rounded-lg"
+                className="w-full p-2 border rounded-lg"
               />
-              <button
-                onClick={() => handleSearch(1)}
-                disabled={loading}
-                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50"
-              >
-                {loading ? 'Searching...' : 'Search'}
-              </button>
+              {loading && (
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                  <Spinner size="sm" />
+                </div>
+              )}
             </div>
 
             {results.length > 0 && (
