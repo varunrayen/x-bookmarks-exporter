@@ -3,3 +3,37 @@ services:
     image: redis:latest
     ports:
       - 6379:6379
+
+  search-ui:
+    build:
+      context: ./search-ui
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./search-ui:/app
+      - ./search-ui/node_modules
+    environment:
+      - NODE_ENV=development
+
+  dagster-daemon:
+    build:
+      context: ./dagster
+      dockerfile: Dockerfile
+    volumes:
+      - ./dagster:/opt/dagster/app
+    environment:
+      - DAGSTER_HOME=/opt/dagster/app
+    command: ["dagster-daemon", "run"]
+
+  dagster-webserver:
+    build:
+      context: ./dagster
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./dagster:/opt/dagster/app
+    environment:
+      - DAGSTER_HOME=/opt/dagster/app
+    command: ["dagit", "-h", "0.0.0.0", "-p", "3000"]
