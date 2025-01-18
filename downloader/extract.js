@@ -17,13 +17,17 @@ class BookmarkExtractor {
   }
 
   async connect() {
+    console.log('Connecting to MongoDB...');
     await this.mongoClient.connect();
     this.database = this.mongoClient.db('production');
     this.collection = this.database.collection('bookmarked_tweets');
+    console.log('Successfully connected to MongoDB');
   }
 
   async disconnect() {
+    console.log('Disconnecting from MongoDB...');
     await this.mongoClient.close();
+    console.log('MongoDB connection closed');
   }
 
   async fetchBookmarksWithRetry(cursor = null, retryCount = 0) {
@@ -127,43 +131,40 @@ class BookmarkExtractor {
         bookmarked_at: new Date(),
         last_updated: new Date()
       };
-    }).filter(tweet => tweet !== null); // Remove any null entries
+    }).filter(tweet => tweet !== null);
 
-    console.log(`Processing ${tweetResults.length} tweets`);
+    console.log(`Fetched ${tweetResults.length} tweets`);
 
-    // Use bulkWrite for more efficient MongoDB operations
-    const operations = tweetResults.map(tweet => ({
-      updateOne: {
-        filter: { _id: tweet._id },
-        update: { 
-          $set: tweet,
-          $setOnInsert: { first_bookmarked_at: new Date() }
-        },
-        upsert: true
-      }
-    }));
+    // Check which tweets already exist in the database
+    const tweetIds = tweetResults.map(tweet => tweet._id);
+    const existingTweets = await this.collection.find({ _id: { $in: tweetIds } }).toArray();
+    const existingTweetIds = new Set(existingTweets.map(tweet => tweet._id));
 
-    const result = await this.collection.bulkWrite(operations);
-    console.log(`Processed ${result.upsertedCount} new tweets, modified ${result.modifiedCount} existing tweets`);
+    console.log(`Found ${existingTweets.length} existing tweets in database`);
+
+    // Filter out existing tweets and only process new ones
+    const newTweets = tweetResults.filter(tweet => !existingTweetIds.has(tweet._id));
+    console.log(`Processing ${newTweets.length} new tweets`);
+
+    if (newTweets.length > 0) {
+      const operations = newTweets.map(tweet => ({
+        insertOne: {
+          document: {
+            ...tweet,
+            first_bookmarked_at: new Date()
+          }
+        }
+      }));
+
+      const result = await this.collection.bulkWrite(operations);
+      console.log(`Successfully inserted ${result.insertedCount} new tweets`);
+    }
     
     return tweetEntries;
   }
 
   async fetchAllBookmarks() {
     let cursor = null;
-    
-    // try {
-    //   // Try to read last cursor
-    //   cursor = fs.existsSync('.bookmark_cursor') 
-    //     ? fs.readFileSync('.bookmark_cursor', 'utf8')
-    //     : null;
-      
-    //   if (cursor) {
-    //     console.log('Resuming from cursor:', cursor);
-    //   }
-    // } catch (err) {
-    //   console.log('Starting from beginning');
-    // }
 
     try {
       await this.connect();
@@ -172,7 +173,23 @@ class BookmarkExtractor {
         const data = await this.fetchBookmarksWithRetry(cursor);
         const entries = data.data?.bookmark_timeline_v2?.timeline?.instructions?.[0]?.entries || [];
         
-        await this.processTweetBatch(entries);
+        const tweetEntries = await this.processTweetBatch(entries);
+        
+        // If we found any existing tweets, stop processing
+        const foundExistingTweets = entries.length > 0 && 
+          await this.collection.findOne({ 
+            _id: { 
+              $in: tweetEntries
+                .filter(entry => entry.entryId.startsWith('tweet-'))
+                .map(entry => entry.content?.itemContent?.tweet_results?.result?.rest_id)
+                .filter(Boolean)
+            } 
+          });
+
+        if (foundExistingTweets) {
+          console.log('Found existing tweets, stopping execution');
+          break;
+        }
         
         cursor = getNextCursor(entries);
         if (!cursor) {
@@ -180,8 +197,7 @@ class BookmarkExtractor {
           break;
         }
         
-        // fs.writeFileSync('.bookmark_cursor', cursor);
-        console.log('Saved cursor position');
+        console.log('Moving to next page');
       }
     } finally {
       await this.disconnect();
