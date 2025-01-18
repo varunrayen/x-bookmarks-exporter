@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import BookmarkCard from './BookmarkCard';
 
 export default function InfiniteBookmarks() {
@@ -12,7 +12,7 @@ export default function InfiniteBookmarks() {
   const [totalBookmarks, setTotalBookmarks] = useState(0);
   const observerTarget = useRef(null);
 
-  const fetchBookmarks = async (pageNum) => {
+  const fetchBookmarks = useCallback(async (pageNum) => {
     if (loading || !hasMore) return;
     
     setLoading(true);
@@ -24,10 +24,11 @@ export default function InfiniteBookmarks() {
       }
       const data = await response.json();
       
-      if (data.results) {
+      if (data.results && data.results.length > 0) {
         setBookmarks(prev => [...prev, ...data.results]);
-        setHasMore(data.results.length > 0);
+        setHasMore(true);
         setTotalBookmarks(data.total);
+        setPage(pageNum + 1);
       } else {
         setHasMore(false);
       }
@@ -38,20 +39,16 @@ export default function InfiniteBookmarks() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [loading, hasMore]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
         if (entries[0].isIntersecting && hasMore && !loading) {
-          setPage(prevPage => {
-            const nextPage = prevPage + 1;
-            fetchBookmarks(nextPage);
-            return nextPage;
-          });
+          fetchBookmarks(page);
         }
       },
-      { threshold: 1.0 }
+      { threshold: 0.1 }
     );
 
     if (observerTarget.current) {
@@ -63,12 +60,7 @@ export default function InfiniteBookmarks() {
         observer.unobserve(observerTarget.current);
       }
     };
-  }, [hasMore, loading]);
-
-  // Initial load
-  useEffect(() => {
-    fetchBookmarks(1);
-  }, []);
+  }, [hasMore, loading, page, fetchBookmarks]);
 
   return (
     <div className="space-y-4 pb-24">
