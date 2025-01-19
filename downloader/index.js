@@ -128,13 +128,6 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
 
     const data = await response.json();
     const entries = data.data?.bookmark_timeline_v2?.timeline?.instructions?.[0]?.entries || [];
-
-    // Save raw entries to JSON file
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const filename = `entries_${timestamp}.json`;
-    fs.writeFileSync(filename, JSON.stringify(entries, null, 2));
-    console.log(`Saved raw entries to ${filename}`);
-
     const tweetEntries = entries.filter((entry) => entry.entryId.startsWith('tweet-'));
 
     if (!tweetEntries || tweetEntries.length === 0) {
