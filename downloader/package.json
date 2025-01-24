@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bookmarks.js",
     "migrate": "node-pg-migrate up",
     "migrate:down": "node-pg-migrate down",
     "migrate:create": "node-pg-migrate create",
@@ -16,8 +17,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@bull-board/api": "^6.6.2",
+    "@bull-board/express": "^6.6.2",
     "bull": "^4.16.5",
     "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "mongodb": "^6.12.0",
     "node-pg-migrate": "^7.9.0",
     "pg": "^8.13.1"

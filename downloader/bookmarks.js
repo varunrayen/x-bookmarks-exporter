@@ -48,16 +48,16 @@ async function saveTweetsToDatabase(tweets) {
 }
 
 async function fetchBookmarks(cursor = null, isFirstIteration = true) {
-  if (!cursor) {
-    // Try to read last cursor from temporary storage
-    try {
-      const lastCursor = fs.readFileSync('.bookmark_cursor', 'utf8');
-      cursor = lastCursor;
-      console.log('Resuming from cursor:', cursor);
-    } catch (err) {
-      console.log('No saved cursor found, starting from beginning');
-    }
-  }
+  // if (!cursor) {
+  //   // Try to read last cursor from temporary storage
+  //   try {
+  //     const lastCursor = fs.readFileSync('.bookmark_cursor', 'utf8');
+  //     cursor = lastCursor;
+  //     console.log('Resuming from cursor:', cursor);
+  //   } catch (err) {
+  //     console.log('No saved cursor found, starting from beginning');
+  //   }
+  // }
 
   const headers = new Headers();
   headers.append('Cookie', process.env.COOKIE);
@@ -158,8 +158,8 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
     });
 
     if (unprocessedEntries.length === 0 && isFirstIteration) {
-      console.log('No new tweets found in first iteration, stopping program');
-      process.exit(0);
+      console.log('No new tweets found in first iteration, stopping');
+      return { success: true, timestamp: new Date().toISOString(), message: 'No new tweets found in first iteration, stopping' };
     }
 
     if (unprocessedEntries.length > 0) {
@@ -174,7 +174,7 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
 
     const nextCursor = getNextCursor(entries);
     if (nextCursor) {
-      fs.writeFileSync('.bookmark_cursor', nextCursor);
+      // fs.writeFileSync('.bookmark_cursor', nextCursor);
       return await fetchBookmarks(nextCursor, false);
     } else {
       console.log('No more bookmarks to fetch');
@@ -252,26 +252,15 @@ const getNextCursor = (entries) => {
   return cursorEntry ? cursorEntry.content.value : null;
 };
 
-fetchBookmarks(null, true);
+module.exports = { fetchBookmarks };
 
-// Create a queue
-// const bookmarkQueue = new Queue('bookmark-fetching', process.env.REDIS_URL);
-
-// // Define the job processor
-// bookmarkQueue.process(async (job) => {
-//   console.log('Running scheduled bookmark fetch:', new Date().toISOString());
-//   try {
-//     await fetchBookmarks();
-//   } catch (error) {
-//     console.error('Scheduled fetch failed:', error);
-//   }
-// });
-
-// // Add recurring job - runs every 30 seconds
-// bookmarkQueue.add({}, {
-//   repeat: {
-//     every: 30 * 1000 // 30 seconds in milliseconds
-//   }
-// });
-
-// console.log('Bookmark fetcher started, waiting for scheduled runs...');
+if (require.main === module) {
+  fetchBookmarks()
+    .then((result) => {
+      console.log('Bookmarks fetch completed:', result);
+    })
+    .catch((error) => {
+      console.error('Error fetching bookmarks:', error);
+      process.exit(1);
+    });
+}
