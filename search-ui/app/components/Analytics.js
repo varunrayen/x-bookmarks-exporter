@@ -58,7 +58,7 @@ export default function Analytics() {
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
-        const response = await fetch('http://localhost:5001/analytics');
+        const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}/analytics');
         const data = await response.json();
         
         setAnalyticsData(prevData => ({

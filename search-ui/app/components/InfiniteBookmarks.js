@@ -18,7 +18,7 @@ export default function InfiniteBookmarks() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://localhost:5001/bookmarks?page=${pageNum}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookmarks?page=${pageNum}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

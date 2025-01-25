@@ -22,7 +22,7 @@ export default function SearchPage() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://localhost:5001/search?query=${encodeURIComponent(query)}&page=${page}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/search?query=${encodeURIComponent(query)}&page=${page}`);
       const data = await response.json();
       
       if (!response.ok) {
