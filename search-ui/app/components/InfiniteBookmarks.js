@@ -87,9 +87,11 @@ export default function InfiniteBookmarks() {
         </div>
       )}
       
-      {bookmarks.map((bookmark, index) => (
-        <BookmarkCard key={`${bookmark.tweet_id}-${index}`} bookmark={bookmark} />
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {bookmarks.map((bookmark, index) => (
+          <BookmarkCard key={`${bookmark.tweet_id}-${index}`} bookmark={bookmark} />
+        ))}
+      </div>
       
       <div ref={observerTarget} className="h-10" />
       

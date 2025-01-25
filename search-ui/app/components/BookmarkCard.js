@@ -21,74 +21,76 @@ export default function BookmarkCard({ bookmark }) {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-200 relative">
-      <div className="p-5">
-        {/* Delete Button */}
-        <button 
-          className="absolute right-4 top-4 text-gray-400 hover:text-red-500 transition-colors duration-200"
-          onClick={() => console.log('Delete bookmark:', bookmark.id)}
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-        
+    <div className="bg-white rounded-lg shadow-sm mb-3 hover:shadow transition-all duration-300 border border-gray-100">
+      <div className="p-4">
         {/* Author Header */}
-        <div className="flex items-center mb-4">
-          <div className="flex-shrink-0 group">
-            <img
-              src={bookmark.author_profile_image_url}
-              alt={bookmark.author_name}
-              className="w-12 h-12 rounded-full ring-2 ring-transparent group-hover:ring-purple-400 transition-all duration-300"
-            />
-          </div>
-          <div className="ml-4">
-            <div className="flex items-center">
-              <span className="font-semibold text-gray-900 hover:text-purple-600 transition-colors duration-200">
-                {bookmark.author_name}
-              </span>
-              <span className="text-gray-500 text-sm ml-2 hover:text-gray-700 transition-colors duration-200">
-                @{bookmark.author_screen_name}
-              </span>
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center">
+            <div className="flex-shrink-0">
+              <img
+                src={bookmark.author_profile_image_url}
+                alt={bookmark.author_name}
+                className="w-10 h-10 rounded-full"
+              />
             </div>
-            <div>
+            <div className="ml-3">
+              <div className="flex items-center gap-1.5">
+                <span className="font-medium text-gray-900">
+                  {bookmark.author_name}
+                </span>
+                <span className="text-gray-500 text-sm">
+                  @{bookmark.author_screen_name}
+                </span>
+              </div>
               <time 
                 dateTime={tweetDate.toISOString()}
-                className="text-sm text-gray-500 hover:text-purple-600 transition-colors duration-200 cursor-default"
+                className="text-sm text-gray-400"
                 title={format(tweetDate, 'h:mm a · MMM d, yyyy')}
               >
-                {format(tweetDate, 'h:mm a · MMM d, yyyy')}
+                {formatDistanceToNow(tweetDate, { addSuffix: true })}
               </time>
             </div>
           </div>
+          <a 
+            href={bookmark.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-gray-600 transition-colors duration-200"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+          </a>
         </div>
 
         {/* Content */}
-        <div className="flex gap-6">
-          <div className="flex-1 space-y-4">
-            <p className="text-gray-800 text-base leading-relaxed whitespace-pre-wrap">{bookmark.text}</p>
+        <div className="flex gap-4">
+          <div className="flex-1">
+            <p className="text-gray-800 text-[15px] leading-relaxed">{bookmark.text}</p>
           </div>
           
           {/* Media Content */}
           {bookmark.media_source && (
-            <div className="flex-shrink-0 w-56">
+            <div className="flex-shrink-0">
               {bookmark.media_type === 'video' ? (
-                <div className="relative aspect-video rounded-lg overflow-hidden shadow-md">
+                <div className="relative w-48 aspect-video rounded-lg overflow-hidden bg-gray-50">
                   <video 
                     controls
-                    className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="absolute inset-0 w-full h-full object-cover"
                     poster={bookmark.media_source.replace('.mp4', '_thumb.jpg')}
                   >
                     <source src={bookmark.media_source} type="video/mp4" />
-                    Your browser does not support the video tag.
                   </video>
                 </div>
               ) : (
-                <div className="relative rounded-lg overflow-hidden shadow-md">
+                <div className="relative w-48 h-48 rounded-lg overflow-hidden bg-gray-50">
                   <img 
                     src={bookmark.media_source} 
                     alt="Tweet media"
-                    className="w-56 h-56 object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover cursor-zoom-in"
                     onClick={handleImageClick}
                   />
                 </div>
@@ -96,81 +98,21 @@ export default function BookmarkCard({ bookmark }) {
             </div>
           )}
         </div>
-
-        {/* Image Popup */}
-        {isImagePopupOpen && bookmark.media_source && bookmark.media_type !== 'video' && (
-          <div 
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50"
-            onClick={() => setIsImagePopupOpen(false)}
-          >
-            <div className="max-w-[95vw] max-h-[95vh] relative">
-              <img 
-                src={bookmark.media_source} 
-                alt="Tweet media"
-                className="max-w-full max-h-[95vh] object-contain rounded-lg shadow-2xl"
-              />
-              <button 
-                className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2.5 hover:bg-black/75 transition-colors duration-200 backdrop-blur-sm"
-                onClick={() => setIsImagePopupOpen(false)}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Tweet Link */}
-        <div className="flex items-center pt-4">
-          <a 
-            href={bookmark.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-purple-600 text-sm flex items-center transition-all duration-200 group"
-          >
-            <svg className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-              />
-            </svg>
-            View on X
-          </a>
-        </div>
       </div>
-      
-      {/* <div className="bg-gray-50/80 px-5 py-3.5 border-t border-gray-200">
-        <div className="flex justify-end items-center relative">
-          <button 
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="text-gray-700 hover:text-purple-600 text-sm flex items-center transition-all duration-200 group"
-          >
-            <svg className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                    d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-            </svg>
-            Add Category
-          </button>
-          
-          {isDropdownOpen && (
-            <div className="absolute bottom-full right-0 mb-2 w-56 rounded-lg shadow-lg bg-white ring-1 ring-black/5 transform origin-bottom-right transition-all duration-200">
-              <div className="py-1.5" role="menu" aria-orientation="vertical">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => handleCategorySelect(category)}
-                    className="block w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200"
-                    role="menuitem"
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
+
+      {/* Image Popup */}
+      {isImagePopupOpen && bookmark.media_source && bookmark.media_type !== 'video' && (
+        <div 
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50"
+          onClick={() => setIsImagePopupOpen(false)}
+        >
+          <img 
+            src={bookmark.media_source} 
+            alt="Tweet media"
+            className="max-w-[95vw] max-h-[95vh] object-contain"
+          />
         </div>
-      </div> */}
+      )}
     </div>
   );
 }
