@@ -4,6 +4,19 @@ services:
     ports:
       - 6379:6379
 
+  search-api:
+    build:
+      context: ./search-api
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./search-api:/app # Mount current directory for hot reloading
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/your_database
+      - PYTHONDONTWRITEBYTECODE=1 # Prevents Python from writing .pyc files
+      - PYTHONUNBUFFERED=1 # Prevents Python from buffering stdout and stderr
+
   search-ui:
     build:
       context: ./search-ui
@@ -12,9 +25,11 @@ services:
       - "3001:3000"
     volumes:
       - ./search-ui:/app
-      - ./search-ui/node_modules
+      - /search-ui/app/node_modules
     environment:
       - NODE_ENV=development
+    env_file:
+      - ./search-ui/.env.local
 
   dagster-daemon:
     build:
