@@ -1,0 +1,27 @@
+# Use Python 3.9 instead of 3.12
+FROM python:3.9-slim
+
+# Set working directory in the container
+WORKDIR /app
+
+# Install poetry
+RUN pip install --no-cache-dir poetry
+
+# Copy poetry files
+COPY pyproject.toml poetry.lock* ./
+
+# Configure poetry to not create a virtual environment
+RUN poetry config virtualenvs.create false
+
+# Install dependencies including development dependencies
+RUN poetry install --no-interaction --no-ansi \
+    && pip install --no-cache-dir gunicorn
+
+# Copy the application code
+COPY . .
+
+# Expose the port your app runs on
+EXPOSE 8000
+
+# Use gunicorn with Flask application
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--reload", "app:app"] 
