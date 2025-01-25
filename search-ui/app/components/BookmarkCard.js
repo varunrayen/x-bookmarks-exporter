@@ -21,8 +21,18 @@ export default function BookmarkCard({ bookmark }) {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-200">
+    <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-200 relative">
       <div className="p-5">
+        {/* Delete Button */}
+        <button 
+          className="absolute right-4 top-4 text-gray-400 hover:text-red-500 transition-colors duration-200"
+          onClick={() => console.log('Delete bookmark:', bookmark.id)}
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
         {/* Author Header */}
         <div className="flex items-center mb-4">
           <div className="flex-shrink-0 group">
@@ -119,16 +129,18 @@ export default function BookmarkCard({ bookmark }) {
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-purple-600 text-sm flex items-center transition-all duration-200 group"
           >
-            <svg className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            <svg className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
             </svg>
             View on X
           </a>
         </div>
       </div>
       
-      <div className="bg-gray-50/80 px-5 py-3.5 border-t border-gray-200">
+      {/* <div className="bg-gray-50/80 px-5 py-3.5 border-t border-gray-200">
         <div className="flex justify-end items-center relative">
           <button 
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -158,7 +170,7 @@ export default function BookmarkCard({ bookmark }) {
             </div>
           )}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
