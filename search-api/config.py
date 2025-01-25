@@ -8,7 +8,7 @@ class Config:
         'dbname': 'bookmarks',
         'user': 'varunrayen',
         'password': 'varunrayen',
-        'host': 'host.docker.internal',
+        'host': 'localhost',
         'port': '5432'
     }
     SIMILARITY_THRESHOLD = 0.7

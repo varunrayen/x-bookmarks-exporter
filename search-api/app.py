@@ -1,21 +1,26 @@
-from flask import Flask, render_template, request
-from flask_cors import CORS
+from fastapi import FastAPI, Query, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from typing import Optional
 from config import Config
 from services.bookmark_service import BookmarkService
 
-app = Flask(__name__)
-CORS(app)
+app = FastAPI()
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+# CORS middleware setup
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.route('/search', methods=['GET'])
-def search():
-    query = request.args.get('query', '')
-    page = int(request.args.get('page', 1))
-    per_page = int(request.args.get('per_page', Config.DEFAULT_PAGE_SIZE))
-    
+@app.get("/search")
+async def search(
+    query: str = Query(""),
+    page: int = Query(1),
+    per_page: int = Query(default=Config.DEFAULT_PAGE_SIZE)
+):
     try:
         results, total_results = BookmarkService.search_bookmarks(query, page, per_page)
         
@@ -27,14 +32,14 @@ def search():
             'total_pages': (total_results + per_page - 1) // per_page
         }
     except Exception as e:
-        return {'error': str(e)}
+        raise HTTPException(status_code=500, detail=str(e))
 
-@app.route('/bookmarks', methods=['GET'])
-def get_bookmarks():
+@app.get("/bookmarks")
+async def get_bookmarks(
+    page: int = Query(1),
+    per_page: int = Query(default=Config.DEFAULT_PAGE_SIZE)
+):
     try:
-        page = int(request.args.get('page', 1))
-        per_page = int(request.args.get('per_page', Config.DEFAULT_PAGE_SIZE))
-        
         results, total_results = BookmarkService.get_bookmarks(page, per_page)
         
         return {
@@ -45,15 +50,22 @@ def get_bookmarks():
             'total_pages': (total_results + per_page - 1) // per_page
         }
     except Exception as e:
-        return {'error': str(e)}
+        raise HTTPException(status_code=500, detail=str(e))
 
-@app.route('/analytics', methods=['GET'])
-def get_analytics():
+@app.get("/analytics")
+async def get_analytics():
     try:
         analytics = BookmarkService.get_analytics()
         return analytics
     except Exception as e:
-        return {'error': str(e)}
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/healthz")
+async def healthz():
+    """Basic health check endpoint"""
+    return {"status": "healthy"}
+
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    import uvicorn
+    uvicorn.run(app, host='0.0.0.0', port=5001)
