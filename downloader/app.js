@@ -23,7 +23,6 @@ bookmarkQueue.process(async (job) => {
     if (error.response) {
       console.error('Error response:', error.response.data);
     }
-    
     // Mark the job as failed
     throw new Error(`Bookmark fetch failed: ${error.message}`);
   }
@@ -32,6 +31,22 @@ bookmarkQueue.process(async (job) => {
 bookmarkQueue.add({}, {
   repeat: {
     every: 60 * 1000 // 60 seconds in milliseconds
+  }
+});
+
+// Add API endpoints
+app.post('/api/bookmarks/fetch', async (req, res) => {
+  try {
+    console.log('Manual bookmark fetch triggered:', new Date().toISOString());
+    const result = await fetchBookmarks();
+    res.json({ success: true, message: 'Bookmark fetch completed', result });
+  } catch (error) {
+    console.error('Manual fetch failed:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Bookmark fetch failed', 
+      error: error.message 
+    });
   }
 });
 

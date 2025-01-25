@@ -170,6 +170,7 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
       );
     } else {
       console.log(`No new tweets to process out of ${tweetEntries.length} tweets`);
+      return { timestamp: new Date().toISOString(), message: 'No new tweets to process, stopping' };
     }
 
     const nextCursor = getNextCursor(entries);
