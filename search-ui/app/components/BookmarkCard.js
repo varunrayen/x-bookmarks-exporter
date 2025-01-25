@@ -4,14 +4,20 @@ import { formatDistanceToNow, format } from 'date-fns';
 import { useState } from 'react';
 
 export default function BookmarkCard({ bookmark }) {
-  const tweetDate = new Date(bookmark.created_at);
+  const tweetDate = new Date(bookmark.timestamp);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
   const categories = ['Work', 'Personal', 'Reading List', 'Inspiration', 'Tech'];
 
   const handleCategorySelect = (category) => {
     // TODO: Implement category assignment logic
     console.log(`Assigning category: ${category} to bookmark: ${bookmark.id}`);
     setIsDropdownOpen(false);
+  };
+
+  const handleImageClick = (e) => {
+    e.preventDefault();
+    setIsImagePopupOpen(true);
   };
 
   return (
@@ -37,24 +43,26 @@ export default function BookmarkCard({ bookmark }) {
                 className="text-sm text-gray-500 hover:text-gray-700 transition-colors duration-200 cursor-default"
                 title={format(tweetDate, 'h:mm a · MMM d, yyyy')}
               >
-                {formatDistanceToNow(tweetDate, { addSuffix: true })}
+                {format(tweetDate, 'h:mm a · MMM d, yyyy')}
               </time>
             </div>
           </div>
         </div>
 
         {/* Content */}
-        <div className="space-y-3">
-          <p className="text-gray-800 text-base whitespace-pre-wrap">{bookmark.text}</p>
+        <div className="flex gap-4">
+          <div className="flex-1 space-y-3">
+            <p className="text-gray-800 text-base whitespace-pre-wrap">{bookmark.text}</p>
+          </div>
           
           {/* Media Content */}
           {bookmark.media_source && (
-            <div className="rounded-xl overflow-hidden bg-gray-50">
+            <div className="flex-shrink-0 w-48">
               {bookmark.media_type === 'video' ? (
                 <div className="relative aspect-video">
                   <video 
                     controls
-                    className="absolute inset-0 w-full h-full object-contain"
+                    className="absolute inset-0 w-full h-full object-contain rounded-lg"
                     poster={bookmark.media_source.replace('.mp4', '_thumb.jpg')}
                   >
                     <source src={bookmark.media_source} type="video/mp4" />
@@ -66,29 +74,53 @@ export default function BookmarkCard({ bookmark }) {
                   <img 
                     src={bookmark.media_source} 
                     alt="Tweet media"
-                    className="w-full h-auto rounded-xl"
-                    style={{ maxHeight: '500px', objectFit: 'contain' }}
+                    className="w-48 h-48 rounded-lg object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                    onClick={handleImageClick}
                   />
                 </div>
               )}
             </div>
           )}
+        </div>
 
-          {/* Tweet Link */}
-          <div className="flex items-center pt-2">
-            <a 
-              href={bookmark.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-blue-600 text-sm flex items-center transition-colors duration-200"
-            >
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-              View on X
-            </a>
+        {/* Image Popup */}
+        {isImagePopupOpen && bookmark.media_source && bookmark.media_type !== 'video' && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+            onClick={() => setIsImagePopupOpen(false)}
+          >
+            <div className="max-w-[90vw] max-h-[90vh] relative">
+              <img 
+                src={bookmark.media_source} 
+                alt="Tweet media"
+                className="max-w-full max-h-[90vh] object-contain rounded-lg"
+              />
+              <button 
+                className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75"
+                onClick={() => setIsImagePopupOpen(false)}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
           </div>
+        )}
+
+        {/* Tweet Link */}
+        <div className="flex items-center pt-2">
+          <a 
+            href={bookmark.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-blue-600 text-sm flex items-center transition-colors duration-200"
+          >
+            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            View on X
+          </a>
         </div>
       </div>
       
