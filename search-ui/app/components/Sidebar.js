@@ -9,7 +9,6 @@ export default function Sidebar() {
   return (
     <aside className="fixed left-0 top-16 h-full w-64 bg-white border-r border-gray-200 overflow-y-auto shadow-sm">
       <div className="px-4 py-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-6 px-3">Bookmarks</h2>
         <nav className="space-y-2">
           <Link 
             href="/"
