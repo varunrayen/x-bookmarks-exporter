@@ -15,7 +15,7 @@ RUN poetry config virtualenvs.create false
 
 # Install dependencies including development dependencies
 RUN poetry install --no-interaction --no-ansi \
-    && pip install --no-cache-dir gunicorn
+    && pip install --no-cache-dir uvicorn
 
 # Copy the application code
 COPY . .
@@ -23,5 +23,5 @@ COPY . .
 # Expose the port your app runs on
 EXPOSE 8000
 
-# Use gunicorn with Flask application
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--reload", "app:app"] 
+# Use uvicorn to run FastAPI application
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"] 
