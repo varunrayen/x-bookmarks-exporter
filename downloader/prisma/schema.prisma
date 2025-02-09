@@ -30,3 +30,12 @@ model tweet_embeddings {
   embedding         Unsupported("vector")?
   bookmarked_tweets bookmarked_tweets @relation(fields: [tweet_id], references: [tweetId], onDelete: NoAction, onUpdate: NoAction)
 }
+
+model BookmarkFetchHistory {
+  id        String   @id @default(uuid())
+  timestamp DateTime @default(now())
+  status    String   @default("PENDING")
+  error     String?  
+
+  @@map("fetch_history")
+}

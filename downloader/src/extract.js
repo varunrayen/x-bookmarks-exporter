@@ -1,6 +1,6 @@
 require('dotenv').config();
-const { MongoClient } = require('mongodb');
 const fs = require('fs');
+const { MongoClient } = require('mongodb');
 
 const BATCH_SIZE = 100;
 const MAX_RETRIES = 3;
@@ -10,7 +10,7 @@ class BookmarkExtractor {
   constructor() {
     this.mongoClient = new MongoClient(process.env.MONGODB_URI, {
       maxPoolSize: 10,
-      minPoolSize: 1
+      minPoolSize: 1,
     });
     this.database = null;
     this.collection = null;
@@ -30,12 +30,54 @@ class BookmarkExtractor {
     console.log('MongoDB connection closed');
   }
 
+  async fetchAllBookmarks() {
+    let cursor = null;
+
+    try {
+      await this.connect();
+
+      while (true) {
+        const data = await this.fetchBookmarksWithRetry(cursor);
+        const entries = data.data?.bookmark_timeline_v2?.timeline?.instructions?.[0]?.entries || [];
+
+        const tweetEntries = await this.processTweetBatch(entries);
+
+        // If we found any existing tweets, stop processing
+        const foundExistingTweets =
+          entries.length > 0 &&
+          (await this.collection.findOne({
+            _id: {
+              $in: tweetEntries
+                .filter((entry) => entry.entryId.startsWith('tweet-'))
+                .map((entry) => entry.content?.itemContent?.tweet_results?.result?.rest_id)
+                .filter(Boolean),
+            },
+          }));
+
+        if (foundExistingTweets) {
+          console.log('Found existing tweets, stopping execution');
+          break;
+        }
+
+        cursor = getNextCursor(entries);
+        if (!cursor) {
+          console.log('No more bookmarks to fetch');
+          break;
+        }
+
+        console.log('Moving to next page');
+      }
+    } finally {
+      await this.disconnect();
+    }
+  }
+
   async fetchBookmarksWithRetry(cursor = null, retryCount = 0) {
     try {
       const headers = new Headers({
+        Authorization: process.env.AUTH_TOKEN,
         Cookie: process.env.COOKIE,
         'X-Csrf-token': process.env.CSRF_TOKEN,
-        Authorization: process.env.AUTH_TOKEN
       });
 
       const features = {
@@ -84,15 +126,17 @@ class BookmarkExtractor {
       )}&variables=${encodeURIComponent(JSON.stringify(variables))}`;
 
       const response = await fetch(API_URL, {
-        method: 'GET',
-        headers: headers,
         credentials: 'include',
+        headers: headers,
+        method: 'GET',
       });
 
       if (!response.ok) {
         if (response.status === 429 && retryCount < MAX_RETRIES) {
-          console.log(`Rate limited, attempt ${retryCount + 1}/${MAX_RETRIES}, waiting ${RETRY_DELAY/1000}s...`);
-          await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+          console.log(
+            `Rate limited, attempt ${retryCount + 1}/${MAX_RETRIES}, waiting ${RETRY_DELAY / 1000}s...`
+          );
+          await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY));
           return this.fetchBookmarksWithRetry(cursor, retryCount + 1);
         }
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -107,101 +151,62 @@ class BookmarkExtractor {
   }
 
   async processTweetBatch(entries) {
-    const tweetEntries = entries.filter(entry => entry.entryId.startsWith('tweet-'));
-    
+    const tweetEntries = entries.filter((entry) => entry.entryId.startsWith('tweet-'));
+
     if (tweetEntries.length === 0) return;
 
-    const tweetResults = tweetEntries.map(entry => {
-      // More robust tweet extraction with error handling
-      const tweetResult = entry.content?.itemContent?.tweet_results?.result;
-      if (!tweetResult) {
-        console.warn(`Skipping tweet due to missing data structure: ${entry.entryId}`);
-        return null;
-      }
+    const tweetResults = tweetEntries
+      .map((entry) => {
+        // More robust tweet extraction with error handling
+        const tweetResult = entry.content?.itemContent?.tweet_results?.result;
+        if (!tweetResult) {
+          console.warn(`Skipping tweet due to missing data structure: ${entry.entryId}`);
+          return null;
+        }
 
-      const tweet = tweetResult.tweet || tweetResult;
-      if (!tweet) {
-        console.warn(`Skipping tweet due to invalid structure: ${entry.entryId}`);
-        return null;
-      }
+        const tweet = tweetResult.tweet || tweetResult;
+        if (!tweet) {
+          console.warn(`Skipping tweet due to invalid structure: ${entry.entryId}`);
+          return null;
+        }
 
-      return {
-        ...tweet,
-        _id: tweet.rest_id || tweet.legacy?.id_str || tweet.id_str || tweet.id,
-        bookmarked_at: new Date(),
-        last_updated: new Date()
-      };
-    }).filter(tweet => tweet !== null);
+        return {
+          ...tweet,
+          _id: tweet.rest_id || tweet.legacy?.id_str || tweet.id_str || tweet.id,
+          bookmarked_at: new Date(),
+          last_updated: new Date(),
+        };
+      })
+      .filter((tweet) => tweet !== null);
 
     console.log(`Fetched ${tweetResults.length} tweets`);
 
     // Check which tweets already exist in the database
-    const tweetIds = tweetResults.map(tweet => tweet._id);
+    const tweetIds = tweetResults.map((tweet) => tweet._id);
     const existingTweets = await this.collection.find({ _id: { $in: tweetIds } }).toArray();
-    const existingTweetIds = new Set(existingTweets.map(tweet => tweet._id));
+    const existingTweetIds = new Set(existingTweets.map((tweet) => tweet._id));
 
     console.log(`Found ${existingTweets.length} existing tweets in database`);
 
     // Filter out existing tweets and only process new ones
-    const newTweets = tweetResults.filter(tweet => !existingTweetIds.has(tweet._id));
+    const newTweets = tweetResults.filter((tweet) => !existingTweetIds.has(tweet._id));
     console.log(`Processing ${newTweets.length} new tweets`);
 
     if (newTweets.length > 0) {
-      const operations = newTweets.map(tweet => ({
+      const operations = newTweets.map((tweet) => ({
         insertOne: {
           document: {
             ...tweet,
-            first_bookmarked_at: new Date()
-          }
-        }
+            first_bookmarked_at: new Date(),
+          },
+        },
       }));
 
       const result = await this.collection.bulkWrite(operations);
       console.log(`Successfully inserted ${result.insertedCount} new tweets`);
     }
-    
+
     return tweetEntries;
-  }
-
-  async fetchAllBookmarks() {
-    let cursor = null;
-
-    try {
-      await this.connect();
-      
-      while (true) {
-        const data = await this.fetchBookmarksWithRetry(cursor);
-        const entries = data.data?.bookmark_timeline_v2?.timeline?.instructions?.[0]?.entries || [];
-        
-        const tweetEntries = await this.processTweetBatch(entries);
-        
-        // If we found any existing tweets, stop processing
-        const foundExistingTweets = entries.length > 0 && 
-          await this.collection.findOne({ 
-            _id: { 
-              $in: tweetEntries
-                .filter(entry => entry.entryId.startsWith('tweet-'))
-                .map(entry => entry.content?.itemContent?.tweet_results?.result?.rest_id)
-                .filter(Boolean)
-            } 
-          });
-
-        if (foundExistingTweets) {
-          console.log('Found existing tweets, stopping execution');
-          break;
-        }
-        
-        cursor = getNextCursor(entries);
-        if (!cursor) {
-          console.log('No more bookmarks to fetch');
-          break;
-        }
-        
-        console.log('Moving to next page');
-      }
-    } finally {
-      await this.disconnect();
-    }
   }
 }
 

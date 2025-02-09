@@ -1,50 +1,12 @@
 require('dotenv').config();
 const { Pool } = require('pg');
+
 const logger = require('./config/logger');
 
 // Initialize PostgreSQL connection pool
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
-
-async function saveTweetsToDatabase(tweets) {
-  const insertQuery = `
-    INSERT INTO bookmarked_tweets (
-      tweet_id, url, full_text, timestamp, media_type, media_source,
-      author_name, author_screen_name, author_profile_image_url
-    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-    ON CONFLICT (tweet_id) DO NOTHING;
-  `;
-
-  try {
-    for (const tweet of tweets) {
-      // Check if tweet already exists
-      const checkQuery = 'SELECT tweet_id FROM bookmarked_tweets WHERE tweet_id = $1';
-      const existingTweet = await pool.query(checkQuery, [tweet.id]);
-
-      if (existingTweet.rows.length === 0) {
-        await pool.query(insertQuery, [
-          tweet.id,
-          tweet.url,
-          tweet.full_text,
-          new Date(tweet.timestamp),
-          tweet.media?.type || null,
-          tweet.media?.source || null,
-          tweet.author.name,
-          tweet.author.screen_name,
-          tweet.author.profile_image_url,
-        ]);
-        logger.info(`Saved tweet ${tweet.id}`);
-      } else {
-        logger.info(`Skipping existing tweet ${tweet.id}`);
-      }
-    }
-    logger.info(`Processing complete for ${tweets.length} tweets`);
-  } catch (error) {
-    logger.error('Error saving tweets to database:', error);
-    throw error;
-  }
-}
 
 async function fetchBookmarks(cursor = null, isFirstIteration = true) {
   // if (!cursor) {
@@ -110,9 +72,9 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
 
   try {
     const response = await fetch(API_URL, {
-      method: 'GET',
-      headers: headers,
       credentials: 'include',
+      headers: headers,
+      method: 'GET',
     });
 
     if (!response.ok) {
@@ -159,9 +121,9 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
     if (unprocessedEntries.length === 0 && isFirstIteration) {
       logger.info('No new bookmarks found in first iteration, stopping');
       return {
+        message: 'No new bookmarks found in first iteration, stopping',
         success: true,
         timestamp: new Date().toISOString(),
-        message: 'No new bookmarks found in first iteration, stopping',
       };
     }
 
@@ -173,7 +135,7 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
       );
     } else {
       logger.info(`No new tweets to process out of ${tweetEntries.length} tweets`);
-      return { timestamp: new Date().toISOString(), message: 'No new tweets to process, stopping' };
+      return { message: 'No new tweets to process, stopping', timestamp: new Date().toISOString() };
     }
 
     const nextCursor = getNextCursor(entries);
@@ -187,6 +149,45 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
     return data;
   } catch (error) {
     logger.error('Error fetching bookmarks:', error);
+    throw error;
+  }
+}
+
+async function saveTweetsToDatabase(tweets) {
+  const insertQuery = `
+    INSERT INTO bookmarked_tweets (
+      tweet_id, url, full_text, timestamp, media_type, media_source,
+      author_name, author_screen_name, author_profile_image_url
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    ON CONFLICT (tweet_id) DO NOTHING;
+  `;
+
+  try {
+    for (const tweet of tweets) {
+      // Check if tweet already exists
+      const checkQuery = 'SELECT tweet_id FROM bookmarked_tweets WHERE tweet_id = $1';
+      const existingTweet = await pool.query(checkQuery, [tweet.id]);
+
+      if (existingTweet.rows.length === 0) {
+        await pool.query(insertQuery, [
+          tweet.id,
+          tweet.url,
+          tweet.full_text,
+          new Date(tweet.timestamp),
+          tweet.media?.type || null,
+          tweet.media?.source || null,
+          tweet.author.name,
+          tweet.author.screen_name,
+          tweet.author.profile_image_url,
+        ]);
+        logger.info(`Saved tweet ${tweet.id}`);
+      } else {
+        logger.info(`Skipping existing tweet ${tweet.id}`);
+      }
+    }
+    logger.info(`Processing complete for ${tweets.length} tweets`);
+  } catch (error) {
+    logger.error('Error saving tweets to database:', error);
     throw error;
   }
 }
@@ -217,14 +218,14 @@ const parseTweet = (entry) => {
       const videoInfo = tweet?.legacy?.extended_entities?.media?.[0]?.video_info;
       const bestVariant = getBestVideoVariant(videoInfo?.variants);
       return {
-        type: media.type,
         source: bestVariant?.url || media.media_url_https,
+        type: media.type,
       };
     }
 
     return {
-      type: media.type,
       source: media.media_url_https,
+      type: media.type,
     };
   };
 
@@ -238,16 +239,16 @@ const parseTweet = (entry) => {
     : null;
 
   return {
-    id: entry.entryId,
-    url: url,
-    full_text: tweet?.legacy?.full_text,
-    timestamp: timestamp,
-    media: getMediaInfo(media),
     author: {
       name: author.name,
-      screen_name: author.screen_name,
       profile_image_url: author.profile_image_url_https,
+      screen_name: author.screen_name,
     },
+    full_text: tweet?.legacy?.full_text,
+    id: entry.entryId,
+    media: getMediaInfo(media),
+    timestamp: timestamp,
+    url: url,
   };
 };
 
