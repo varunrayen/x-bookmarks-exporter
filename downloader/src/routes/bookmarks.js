@@ -26,7 +26,12 @@ router.post('/fetch', async (req, res) => {
       },
       where: { id: fetchEntry.id },
     });
-    res.json({ message: 'Bookmark fetch completed', result });
+
+    if (result && result.length > 0) {
+      res.status(200).json({ message: 'Bookmark fetch completed', result });
+    } else {
+      res.status(204).json({ message: 'No bookmarks found' });
+    }
   } catch (error) {
     logger.error('Error fetching bookmarks:', error);
 

@@ -114,6 +114,7 @@ class BookmarkService {
       if (unprocessedEntries.length === 0 && isFirstIteration) {
         logger.info('No new bookmarks found in first iteration, stopping');
         return {
+          code: 202,
           message: 'No new bookmarks found in first iteration, stopping',
           success: true,
           timestamp: new Date().toISOString(),
@@ -218,7 +219,6 @@ class BookmarkService {
 
   async saveTweetsToDatabase(tweets) {
     logger.info(`Saving ${tweets.length} tweets to database`);
-    logger.info(tweets[0]);
     try {
       for (const tweet of tweets) {
         await this.prisma.bookmarked_tweets.upsert({
