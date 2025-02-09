@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model bookmarked_tweets {
+  tweetId               String            @id @map("tweet_id") @db.VarChar
+  url                   String
+  fullText              String?           @map("full_text")
+  timestamp             DateTime?         @db.Timestamp(6)
+  mediaType             String?           @map("media_type") @db.VarChar
+  mediaSource           String?           @map("media_source")
+  authorName            String?           @map("author_name") @db.VarChar
+  authorScreenName      String?           @map("author_screen_name") @db.VarChar
+  authorProfileImageUrl String?           @map("author_profile_image_url")
+  createdAt             DateTime          @default(now()) @map("created_at") @db.Timestamp(6)
+  embeddings            Boolean?          @default(false)
+  tweet_embeddings      tweet_embeddings?
+
+  @@index([authorScreenName], map: "bookmarked_tweets_author_screen_name_index")
+  @@index([timestamp], map: "bookmarked_tweets_timestamp_index")
+}
+
+model tweet_embeddings {
+  tweet_id          String            @id @db.VarChar
+  embedding         Unsupported("vector")?
+  bookmarked_tweets bookmarked_tweets @relation(fields: [tweet_id], references: [tweetId], onDelete: NoAction, onUpdate: NoAction)
+}

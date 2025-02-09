@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Pool } = require('pg');
+const logger = require('./config/logger');
 
 // Initialize PostgreSQL connection pool
 const pool = new Pool({
@@ -33,14 +34,14 @@ async function saveTweetsToDatabase(tweets) {
           tweet.author.screen_name,
           tweet.author.profile_image_url,
         ]);
-        console.log(`Saved tweet ${tweet.id}`);
+        logger.info(`Saved tweet ${tweet.id}`);
       } else {
-        console.log(`Skipping existing tweet ${tweet.id}`);
+        logger.info(`Skipping existing tweet ${tweet.id}`);
       }
     }
-    console.log(`Processing complete for ${tweets.length} tweets`);
+    logger.info(`Processing complete for ${tweets.length} tweets`);
   } catch (error) {
-    console.error('Error saving tweets to database:', error);
+    logger.error('Error saving tweets to database:', error);
     throw error;
   }
 }
@@ -115,9 +116,9 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
     });
 
     if (!response.ok) {
-      console.error('API error:', response.status);
+      logger.error('API error:', response.status);
       if (response.status === 429) {
-        console.log('Rate limited, waiting 60s before retry...');
+        logger.info('Rate limited, waiting 60s before retry...');
         await new Promise((resolve) => setTimeout(resolve, 60000));
         return await fetchBookmarks(cursor, result);
       }
@@ -129,7 +130,7 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
     const tweetEntries = entries.filter((entry) => entry.entryId.startsWith('tweet-'));
 
     if (!tweetEntries || tweetEntries.length === 0) {
-      console.log('No entries found, stopping program');
+      logger.info('No entries found, stopping program');
       process.exit(0);
     }
 
@@ -156,7 +157,7 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
     });
 
     if (unprocessedEntries.length === 0 && isFirstIteration) {
-      console.log('No new bookmarks found in first iteration, stopping');
+      logger.info('No new bookmarks found in first iteration, stopping');
       return {
         success: true,
         timestamp: new Date().toISOString(),
@@ -167,11 +168,11 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
     if (unprocessedEntries.length > 0) {
       const parsedTweets = unprocessedEntries.map(parseTweet);
       await saveTweetsToDatabase(parsedTweets);
-      console.log(
+      logger.info(
         `Processed ${unprocessedEntries.length} new tweets out of ${tweetEntries.length} total`
       );
     } else {
-      console.log(`No new tweets to process out of ${tweetEntries.length} tweets`);
+      logger.info(`No new tweets to process out of ${tweetEntries.length} tweets`);
       return { timestamp: new Date().toISOString(), message: 'No new tweets to process, stopping' };
     }
 
@@ -180,12 +181,12 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
       // fs.writeFileSync('.bookmark_cursor', nextCursor);
       return await fetchBookmarks(nextCursor, false);
     } else {
-      console.log('No more bookmarks to fetch');
+      logger.info('No more bookmarks to fetch');
     }
 
     return data;
   } catch (error) {
-    console.error('Error fetching bookmarks:', error);
+    logger.error('Error fetching bookmarks:', error);
     throw error;
   }
 }

@@ -1,19 +1,27 @@
 const express = require('express');
 const { fetchBookmarks } = require('./bookmarks');
+const logger = require('./config/logger');
+const expressPino = require('express-pino-logger');
+const { PrismaClient } = require('@prisma/client');
+
+const prisma = new PrismaClient();
 const app = express();
 
-// Create versioned router
-const v1Router = express.Router();
-app.use('/api/v1', v1Router);
+// Add pino logger middleware
+app.use(expressPino({ logger }));
 
-// Add API endpoints to versioned router
-v1Router.post('/bookmarks/trigger-fetch', async (req, res) => {
+// API version configuration
+const API_VERSION = 'v1';
+const API_PREFIX = `/api/${API_VERSION}`;
+
+// Add API endpoints
+app.post(`${API_PREFIX}/bookmarks/fetch`, async (req, res) => {
   try {
-    console.log('Bookmark fetch triggered:', new Date().toISOString());
+    logger.info('Bookmark fetch triggered:', new Date().toISOString());
     const result = await fetchBookmarks();
     res.json({ success: true, message: 'Bookmark fetch completed', result });
   } catch (error) {
-    console.error('Bookmark fetch failed:', error);
+    logger.error('Bookmark fetch failed:', error);
     res.status(500).json({
       success: false,
       message: 'Bookmark fetch failed',
@@ -22,7 +30,7 @@ v1Router.post('/bookmarks/trigger-fetch', async (req, res) => {
   }
 });
 
-v1Router.get('/healthz', (req, res) => {
+app.get(`${API_PREFIX}/healthz`, (req, res) => {
   res
     .status(200)
     .json({ status: 'OK', message: 'X-Marks API is running', uptime: process.uptime() });
@@ -31,5 +39,10 @@ v1Router.get('/healthz', (req, res) => {
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  logger.info(`Server is running on http://localhost:${PORT}`);
+});
+
+// Gracefully shutdown Prisma Client
+process.on('beforeExit', async () => {
+  await prisma.$disconnect();
 });
