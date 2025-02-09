@@ -1,7 +1,5 @@
 require('dotenv').config();
 const { Pool } = require('pg');
-const fs = require('fs');
-const Queue = require('bull');
 
 // Initialize PostgreSQL connection pool
 const pool = new Pool({
@@ -158,8 +156,12 @@ async function fetchBookmarks(cursor = null, isFirstIteration = true) {
     });
 
     if (unprocessedEntries.length === 0 && isFirstIteration) {
-      console.log('No new tweets found in first iteration, stopping');
-      return { success: true, timestamp: new Date().toISOString(), message: 'No new tweets found in first iteration, stopping' };
+      console.log('No new bookmarks found in first iteration, stopping');
+      return {
+        success: true,
+        timestamp: new Date().toISOString(),
+        message: 'No new bookmarks found in first iteration, stopping',
+      };
     }
 
     if (unprocessedEntries.length > 0) {
@@ -255,13 +257,14 @@ const getNextCursor = (entries) => {
 
 module.exports = { fetchBookmarks };
 
-if (require.main === module) {
-  fetchBookmarks()
-    .then((result) => {
-      console.log('Bookmarks fetch completed:', result);
-    })
-    .catch((error) => {
-      console.error('Error fetching bookmarks:', error);
-      process.exit(1);
-    });
-}
+// This is for running the script directly
+// if (require.main === module) {
+//   fetchBookmarks()
+//     .then((result) => {
+//       console.log('Bookmarks fetch completed:', result);
+//     })
+//     .catch((error) => {
+//       console.error('Error fetching bookmarks:', error);
+//       process.exit(1);
+//     });
+// }
